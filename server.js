@@ -7,4 +7,4 @@ app.get('/', (req, res) =>
 res.json('Hello from server'))
 
 app.listen(PORT, () =>
-    console.log(`Server is running at hhtp://localhost:${PORT}`));
+    console.log(`Server is running at http://localhost:${PORT}`));
