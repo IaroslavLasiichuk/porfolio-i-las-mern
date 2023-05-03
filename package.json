@@ -4,9 +4,10 @@
   "description": "portfolio iaroslav",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && npm install",
     "start": "node server.js",
-    "client": "npm dev --prefix client",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/IaroslavLasiichuk/porfolio-i-las-mern#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "devDependencies": {
