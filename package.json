@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "portfolio",
   "main": "server.js",
+  "engines": {
+    "node": "v20.1.0",
+    "npm": "9.6.4"
+  },
   "scripts": {
     "start:dev": "concurrently \"cd client && npm run build\" \"cd server && npm run server\" ",
     "start": "npm run build && cd server && node server.js",
