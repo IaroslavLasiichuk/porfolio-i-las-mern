@@ -1,11 +1,12 @@
+import Gradient from '../components/Gradient'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
 import data from '/src/data/data.js';
 import logo from '../../public/vite.svg';
+
 const { navigation } = data;
-import Gradient from '../components/Gradient'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

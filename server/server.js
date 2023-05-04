@@ -6,6 +6,12 @@ app.use(cors());
 // Port
 const PORT = process.env.PORT || 3005;
 
+// Static route to serve up the content of our built webpack bundle which is located in the dist folder
+app.use(express.static('../client/dist'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 app.get('/api/customers',
     (req, res) => {
     const customers = [

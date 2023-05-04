@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import React from "react";
 import Gradient from '../components/Gradient'
 
 export default function Hero() {
