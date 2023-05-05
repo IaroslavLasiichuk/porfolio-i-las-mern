@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "portfolio iaroslav",
   "main": "server.js",
+  "engines": {
+    "node": "v16.x",
+    "npm": "9.6.4"
+  },
   "scripts": {
     "client-install": "cd client && npm install",
     "start": "node server.js",
