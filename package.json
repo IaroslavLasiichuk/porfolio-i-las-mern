@@ -4,7 +4,7 @@
   "description": "portfolio",
   "main": "server.js",
   "engines": {
-    "node": "v20.1.0",
+    "node": "v16.x",
     "npm": "9.6.4"
   },
   "scripts": {
