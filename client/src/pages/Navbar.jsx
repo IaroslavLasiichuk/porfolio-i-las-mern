@@ -17,13 +17,13 @@ export default function Navbar() {
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="/" className="-m-1.5 p-1.5">
+            <HashLink to="/" className="-m-1.5 p-1.5">
               <img
                 className="h-12 w-auto"
                 src={logo}
-                alt=""
+                alt="Logo Iaroslav Lasiichuk"
               />
-            </a>
+            </HashLink>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -44,9 +44,9 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <HashLink  to="/login" className="text-sm font-semibold leading-6 text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </HashLink>
             {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log out <span aria-hidden="true">&larr;</span>
             </a> */}
@@ -78,13 +78,13 @@ export default function Navbar() {
                 <div className="space-y-2 py-6">
                 <Gradient/>
                   {navigation.map((item) => (
-                    <a
+                    <HashLink
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </HashLink>
                   ))}
                 </div>
                 <div className="py-6">

@@ -1,11 +1,12 @@
 import Gradient from '../components/Gradient'
+import { HashLink } from 'react-router-hash-link'
 
-export default function Home() {
+export default function About() {
     return (
 <>
 <div className="relative isolate px-6 pt-14 lg:px-8">
     <Gradient/>
-        <div id="home" className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
+        <div id="about" className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           </div>
           <div className="text-center">
@@ -32,8 +33,8 @@ export default function Home() {
               >
                 Contact Me
               </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-               Jump to my GitHub<span aria-hidden="true">→</span>
+              <a href="https://github.com/IaroslavLasiichuk" target="blank" className="text-sm font-semibold leading-6 text-gray-900">
+               Jump to my GitHub<span>→</span>
               </a>
             </div>
           </div>
