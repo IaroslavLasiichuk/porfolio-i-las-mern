@@ -1,8 +1,9 @@
 import React from "react"
 import Navbar from './pages/Navbar.jsx'
-import Home from './pages/Home.jsx'
+import About from './pages/About.jsx'
 import Project from './pages/Project.jsx'
 import Contact from './pages/Contact.jsx'
+import Blog from './pages/Blog.jsx'
 import Footer from './pages/Footer.jsx'
 function App() {
   // const [data, setData] = React.useState(null);
@@ -18,8 +19,9 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      <About/>
       <Project/>
+      <Blog/>
       <Contact/>
       <Footer/>
         {/* <ul>
