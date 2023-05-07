@@ -4,13 +4,13 @@ import './App.css'
 function App() {
   const [data, setData] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch('http://localhost:3005/api/customers')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      }); 
-  }, []);
+  // React.useEffect(() => {
+  //   fetch('http://localhost:3005/api/customers')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data);
+  //     }); 
+  // }, []);
 
   return (
     <>

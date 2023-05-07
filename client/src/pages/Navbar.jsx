@@ -4,7 +4,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
 import data from '/src/data/data.js';
-import logo from '../../public/vite.svg';
+import logo from '../../public/quickexport.png';
 
 const { navigation } = data;
 
@@ -17,7 +17,7 @@ export default function Navbar() {
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
               <img
-                className="h-8 w-auto"
+                className="h-12 w-auto"
                 src={logo}
                 alt=""
               />
