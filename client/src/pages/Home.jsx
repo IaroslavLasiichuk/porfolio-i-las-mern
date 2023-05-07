@@ -1,11 +1,11 @@
 import Gradient from '../components/Gradient'
 
-export default function Hero() {
+export default function Home() {
     return (
 <>
 <div className="relative isolate px-6 pt-14 lg:px-8">
     <Gradient/>
-        <div className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
+        <div id="home" className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           </div>
           <div className="text-center">
@@ -38,7 +38,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      <Gradient/>
+      {/* <Gradient/> */}
       </div>
         </>
     )
