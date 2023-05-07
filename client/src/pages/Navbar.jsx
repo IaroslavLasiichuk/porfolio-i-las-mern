@@ -1,4 +1,6 @@
 import Gradient from '../components/Gradient'
+import { HashLink } from 'react-router-hash-link'
+import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -34,10 +36,11 @@ export default function Navbar() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
+           
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <HashLink smooth key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
                 {item.name}
-              </a>
+              </HashLink>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">

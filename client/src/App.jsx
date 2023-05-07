@@ -1,8 +1,11 @@
 import React from "react"
-import './App.css'
-
+import Navbar from './pages/Navbar.jsx'
+import Home from './pages/Home.jsx'
+import Project from './pages/Project.jsx'
+import Contact from './pages/Contact.jsx'
+import Footer from './pages/Footer.jsx'
 function App() {
-  const [data, setData] = React.useState(null);
+  // const [data, setData] = React.useState(null);
 
   // React.useEffect(() => {
   //   fetch('http://localhost:3005/api/customers')
@@ -14,6 +17,11 @@ function App() {
 
   return (
     <>
+      <Navbar/>
+      <Home/>
+      <Project/>
+      <Contact/>
+      <Footer/>
         {/* <ul>
         {data ? (
         <ul>
