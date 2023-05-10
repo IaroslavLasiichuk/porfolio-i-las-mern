@@ -1,3 +1,4 @@
+import Navbar from './Navbar'
 /*
   This example requires some changes to your config:
   
@@ -17,41 +18,39 @@ const products = [
       id: 1,
       name: 'Movie Tracker',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageSrc: '',
       imageAlt: "Javascript Logo",
     },
     {
-      id: 1,
+      id: 2,
       name: 'Basic Tee',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageSrc: '',
       imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
+     
     },
     {
-      id: 1,
+      id: 3,
       name: 'Basic Tee',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageSrc: '',
       imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
+     
     },
     {
-      id: 1,
+      id: 4,
       name: 'Basic Tee',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrlA2qpZZv4lq94Pm1r-Lhvyd94WddBnfV6g&usqp=CAU',
       imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
+      
     },
-    // More products...
+   
   ]
   
-  export default function Blog() {
+  export default function Project() {
     return (
+     
       <div id="project" className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="mx-auto lg:mx-0">

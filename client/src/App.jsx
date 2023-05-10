@@ -1,10 +1,11 @@
 import React from "react"
-import Navbar from './pages/Navbar.jsx'
+import Layout from './pages/Layout.jsx'
 import About from './pages/About.jsx'
 import Project from './pages/Project.jsx'
-import Contact from './pages/Contact.jsx'
 import Blog from './pages/Blog.jsx'
-import Footer from './pages/Footer.jsx'
+import Contact from './pages/Contact.jsx'
+
+import { Route, Routes, useNavigate} from 'react-router-dom'
 function App() {
   // const [data, setData] = React.useState(null);
 
@@ -18,12 +19,17 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      <About/>
-      <Project/>
-      <Blog/>
-      <Contact/>
-      <Footer/>
+     
+      <Routes>
+  
+        <Route path="/" element={<Layout/>}/>
+        <Route path="about" element={<About/>} />
+        <Route path="project" element={<Project/>} />
+        <Route path="blog" element={<Blog/>} />
+  <Route path="contact" element={<Contact/>} />
+  
+        </Routes>
+        
         {/* <ul>
         {data ? (
         <ul>

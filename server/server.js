@@ -1,7 +1,10 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const app = express();
 app.use(cors());
+
+const db = require('./config/connection');
+const routes = require('./routes');
 
 // Port
 const PORT = process.env.PORT || 3005;
@@ -10,9 +13,10 @@ const PORT = process.env.PORT || 3005;
 app.use(express.static('../client/dist'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
-
-app.get('/api/customers',
+// Routes
+app.get('/project',
     (req, res) => {
     const customers = [
         { id: 1, firstName: "Iarosav", lastName: "Lasiichuk" },
@@ -21,5 +25,10 @@ app.get('/api/customers',
     ];
     res.json(customers);
 });
-app.listen(PORT, () =>
-    console.log(`Server is running at http://localhost:${PORT}`));
+
+    // Start the API server
+db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`Server is running at http://localhost:${PORT}`);
+    });
+  });
