@@ -1,29 +1,30 @@
 import Gradient from '../components/Gradient'
-import { HashLink } from 'react-router-hash-link'
-import { Outlet, Link } from 'react-router-dom'
+// import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
 import data from '/src/data/data.js';
 import logo from '../../public/quickexport.png';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const { navigation } = data;
 
 export default function Navbar() {
+ 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <header className="fixed-nav absolute inset-x-0 top-0 z-50">
+      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <HashLink to="/" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5">
               <img
                 className="h-12 w-auto"
                 src={logo}
                 alt="Logo Iaroslav Lasiichuk"
               />
-            </HashLink>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -37,16 +38,27 @@ export default function Navbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
            
-            {navigation.map((item) => (
-              <HashLink smooth key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
-              </HashLink>
-            ))}
+          {navigation.map((item) => (
+            <Link 
+             
+              to={item.href}
+            spy={true}
+            smooth={true}
+              offset={-0}
+            duration={500}
+    key={item.name}
+            
+            
+    className="text-sm font-semibold leading-6 text-gray-900">
+    {item.name}
+   
+  </Link>
+))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <HashLink  to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link  to="/login" className="text-sm font-semibold leading-6 text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
-            </HashLink>
+            </Link>
             {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log out <span aria-hidden="true">&larr;</span>
             </a> */}
@@ -78,22 +90,22 @@ export default function Navbar() {
                 <div className="space-y-2 py-6">
                 <Gradient/>
                   {navigation.map((item) => (
-                    <HashLink
+                    <Link
                       key={item.name}
                       to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </HashLink>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </Link>
                    {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log out <span aria-hidden="true">&larr;</span>
             </a> */}

@@ -1,11 +1,12 @@
 import Gradient from '../components/Gradient'
-import { HashLink } from 'react-router-hash-link'
+import Navbar  from './Navbar';
 
 export default function About() {
     return (
 <>
-<div className="relative isolate px-6 pt-14 lg:px-8">
-    <Gradient/>
+        <div className="relative isolate px-6 pt-14 lg:px-8">
+          <Gradient />
+      
         <div id="about" className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           </div>
