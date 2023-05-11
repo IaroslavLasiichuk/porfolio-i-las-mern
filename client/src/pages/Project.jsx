@@ -1,4 +1,7 @@
 import Navbar from './Navbar'
+import Footer from './Footer'
+import Gradient from "../components/Gradient"
+import logo from "../../public/quickexport.png";
 /*
   This example requires some changes to your config:
   
@@ -50,8 +53,11 @@ const products = [
   
   export default function Project() {
     return (
-     
-      <div id="project" className="bg-white">
+      <>
+         <Navbar />
+      <div id="project" className="bg-white relative isolate">
+       
+        <Gradient/>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="mx-auto lg:mx-0">
             <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">My projects</h2>
@@ -86,8 +92,13 @@ const products = [
               </div>
             ))}
           </div>
+       
         </div>
-      </div>
+        <div>
+        <Footer/>
+        </div>
+        </div>
+        </>
     )
   }
   
