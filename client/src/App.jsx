@@ -19,17 +19,12 @@ function App() {
 
   return (
     <>
-     
       <Routes>
-  
         <Route path="/" element={<Layout/>}/>
-        <Route path="about" element={<About/>} />
         <Route path="project" element={<Project/>} />
         <Route path="blog" element={<Blog/>} />
-  <Route path="contact" element={<Contact/>} />
-  
-        </Routes>
-        
+        <Route path="contact" element={<Contact/>} />
+      </Routes>
         {/* <ul>
         {data ? (
         <ul>

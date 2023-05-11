@@ -10,13 +10,13 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <div className="layout">
-        <Navbar />
-        <About />
-        <Project />
-        <Blog />
-        <Contact />
+      <About />
+      <Project/>
+      <Blog/>
+      <Contact/>
         <Footer />
-      <Outlet/>
+      <Outlet />
+      
     </div>
   );
 };

@@ -1,8 +1,7 @@
 const navigation = [
-    { name: 'About', href: 'about' },
-    { name: 'Projects', href: 'project' },
-    { name: 'Blog', href: 'blog' },
-    { name: 'Contact', href: 'contact' },
+    { name: 'Projects', href: '/project' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
 ]
 
 const posts = [

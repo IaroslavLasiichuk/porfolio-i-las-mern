@@ -1,22 +1,23 @@
-import Gradient from '../components/Gradient'
-// import { Link } from "react-router-dom";
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Gradient from "../components/Gradient";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import data from '/src/data/data.js';
-import logo from '../../public/quickexport.png';
-import { Link, animateScroll as scroll } from "react-scroll";
+import data from "/src/data/data.js";
+import logo from "../../public/quickexport.png"
 
 const { navigation } = data;
 
 export default function Navbar() {
- 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="bg-white">
       <header className="fixed-nav absolute inset-x-0 top-0 z-50">
-      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav
+          className="flex items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
               <img
@@ -37,26 +38,21 @@ export default function Navbar() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-           
-          {navigation.map((item) => (
-            <Link 
-             
-              to={item.href}
-            spy={true}
-            smooth={true}
-              offset={-0}
-            duration={500}
-    key={item.name}
-            
-            
-    className="text-sm font-semibold leading-6 text-gray-900">
-    {item.name}
-   
-  </Link>
-))}
+            {navigation.map((item) => (
+              <Link
+                to={item.href}
+                key={item.name}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link  to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link
+              to="/login"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
             {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -64,17 +60,18 @@ export default function Navbar() {
             </a> */}
           </div>
         </nav>
-        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src={logo}
-                  alt=""
-                />
+                <img className="h-8 w-auto" src={logo} alt="" />
               </a>
               <button
                 type="button"
@@ -88,7 +85,7 @@ export default function Navbar() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                <Gradient/>
+                  <Gradient />
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
@@ -106,7 +103,7 @@ export default function Navbar() {
                   >
                     Log in
                   </Link>
-                   {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                  {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log out <span aria-hidden="true">&larr;</span>
             </a> */}
                 </div>
@@ -116,5 +113,5 @@ export default function Navbar() {
         </Dialog>
       </header>
     </div>
-  )
+  );
 }

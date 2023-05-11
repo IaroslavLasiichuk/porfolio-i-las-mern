@@ -1,15 +1,17 @@
 import Gradient from '../components/Gradient'
 import data from '../data/data';
 import Navbar  from './Navbar';
+import Footer  from './Footer';
 const { posts } = data;
   
   export default function Blog() {
     return (
      
-      <div id="blog" className="bg-white py-24 sm:py-32">
-       
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
+      <div id="blog" className="relative isolate bg-white min-h-screen pt-24 sm:pt-24  flex flex-col">
+        <Navbar />
+        <Gradient/>
+      <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Learn more about JavaScript
@@ -17,9 +19,9 @@ const { posts } = data;
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
-            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
-              <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.datetime} className="text-gray-500">
+            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between mx-10">
+              <div className="flex items-center gap-x-4 text-xs ">
+                <time dateTime={post.datetime} className="text-gray-500 ">
                   {post.date}
                 </time>
                 <a
@@ -53,7 +55,16 @@ const { posts } = data;
             </article>
           ))}
         </div>
-      </div>
+        </div>
+        <div className='fixed inset-x-0 bottom-0 p-4'>
+      
+        </div>
+
+        <div className='bg-white shadow-sm py-0'>
+    <Footer/>
+  </div>
+      
+       
     </div>
     )
   }
