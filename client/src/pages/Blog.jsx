@@ -1,13 +1,12 @@
 import Gradient from '../components/Gradient'
-import data from '../data/data';
-import Navbar  from './Navbar';
-import Footer  from './Footer';
+import data from '../data/data'
+import Navbar  from './Navbar'
+import Footer  from './Footer'
 const { posts } = data;
   
   export default function Blog() {
     return (
-     
-      <div id="blog" className="relative isolate bg-white min-h-screen pt-24 sm:pt-24  flex flex-col">
+      <div id="blog" className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
         <Navbar />
         <Gradient/>
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
@@ -56,15 +55,9 @@ const { posts } = data;
           ))}
         </div>
         </div>
-        <div className='fixed inset-x-0 bottom-0 p-4'>
-      
-        </div>
-
         <div className='bg-white shadow-sm py-0'>
     <Footer/>
   </div>
-      
-       
     </div>
     )
   }
