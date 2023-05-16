@@ -1,4 +1,5 @@
 export default function Footer() {
+  
   return (
     <section className="bg-white">
       <div className="max-w-screen-xl px-0 py-0 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8">

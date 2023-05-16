@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from './pages/Layout.jsx'
 import About from './pages/About.jsx'
-import Project from './pages/Project.jsx'
+import Portfolio from './pages/Portfolio.jsx'
 import Blog from './pages/Blog.jsx'
 import Contact from './pages/Contact.jsx'
 
@@ -21,7 +21,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout/>}/>
-        <Route path="project" element={<Project/>} />
+        <Route path="portfolio" element={<Portfolio/>} />
         <Route path="blog" element={<Blog/>} />
         <Route path="contact" element={<Contact/>} />
       </Routes>

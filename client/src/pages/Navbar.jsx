@@ -1,11 +1,11 @@
-import Gradient from "../components/Gradient";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import React from "react";
-import data from "/src/data/data.js";
-import logo from "../../public/quickexport.png"
+import Gradient from '../components/Gradient'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import React from 'react'
+import data from '../data/data'
+import logo from '../assets/quickexport.png'
 
 const { navigation } = data;
 
@@ -49,15 +49,6 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              to="/login"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </Link>
-            {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Log out <span aria-hidden="true">&larr;</span>
-            </a> */}
           </div>
         </nav>
         <Dialog
@@ -69,10 +60,10 @@ export default function Navbar() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img className="h-8 w-auto" src={logo} alt="" />
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
