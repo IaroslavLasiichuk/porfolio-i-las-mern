@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 3005;
 app.use(express.static('../client/dist'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(routes);
+app.use(routes);
 
 // Routes
-app.get('/user',
+app.get('/api',
     (req, res) => {
     const customers = [
         { id: 1, firstName: "Iaroslav", lastName: "Lasiichuk" },
