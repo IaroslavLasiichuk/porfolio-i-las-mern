@@ -2,9 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const nodemailer = require('nodemailer');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 require("dotenv").config();
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://secure-crag-53984.herokuapp.com"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 app.use(cors());
 
 const db = require('./config/connection');
@@ -16,7 +20,7 @@ const PORT = process.env.PORT || 3005;
 // Static route to serve up the content of our built webpack bundle which is located in the dist folder
 app.use(express.static('../client/dist'));
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:3005', changeOrigin: true }));
+// app.use('/api', createProxyMiddleware({ target: 'http://localhost:3005', changeOrigin: true }));
 app.use(express.json());
 // app.use(routes);
 

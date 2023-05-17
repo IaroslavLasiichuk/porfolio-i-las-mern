@@ -22,7 +22,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mailerState });
-    const response = await fetch("http://localhost:3005/contact", {
+    const response = await fetch("https://secure-crag-53984.herokuapp.com/contact", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
