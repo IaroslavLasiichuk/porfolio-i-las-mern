@@ -49,7 +49,7 @@ app.get('/api/customers',
         from: `${req.body.mailerState.email}`,
         to: process.env.EMAIL,
         subject: `Message from: ${req.body.mailerState.email}`,
-        text: `${req.body.mailerState.message}`
+        text: `Name: ${req.body.mailerState.firstName} ${req.body.mailerState.lastName} company:${req.body.mailerState.company}.Message: ${req.body.mailerState.message}`
     };
     
     mailTransporter.sendMail(mailDetails, function(err, data) {
