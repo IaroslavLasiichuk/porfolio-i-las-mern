@@ -3,10 +3,8 @@ export default function Footer() {
   return (
     <section className="bg-white">
       <div className="max-w-screen-xl px-0 py-0 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8">
-              <div className="flex justify-center mt-8 space-x-6">
-                  
-                  {/* Link to Instagram */}
-                  
+        <div className="flex justify-center mt-8 space-x-6">
+          {/* Link to Instagram */}
           <a
             href="https://www.instagram.com/slavalasiychuk/?igshid=rvivm09cjvhg&hl=en"
             target="blank"
@@ -26,8 +24,7 @@ export default function Footer() {
               ></path>
             </svg>
           </a>
-                  {/* Link to Linkedin */}
-                  
+          {/* Link to Linkedin */}
           <a
             href="https://www.linkedin.com/in/iaroslav-lasiichuk-2974571a5/"
             target="blank"
@@ -37,10 +34,8 @@ export default function Footer() {
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
             </svg>
-                  </a>
-                  
-                  {/* Link to GitHub */}
-                  
+          </a>
+          {/* Link to GitHub */}
           <a
             href="https://github.com/IaroslavLasiichuk"
             target="blank"

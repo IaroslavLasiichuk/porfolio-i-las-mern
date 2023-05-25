@@ -1,9 +1,9 @@
 import Gradient from '../components/Gradient'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import React from 'react'
 import data from '../data/data'
 import logo from '../assets/quickexport.png'
 
@@ -87,15 +87,6 @@ export default function Navbar() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <Link
-                    to="/"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </Link>
-                  {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Log out <span aria-hidden="true">&larr;</span>
-            </a> */}
                 </div>
               </div>
             </div>

@@ -1,14 +1,15 @@
-import Gradient from "../components/Gradient";
-import { Link } from "react-router-dom";
-import data from "../data/data";
+import Gradient from '../components/Gradient'
+import { Link } from 'react-router-dom'
+import resume from '../assets/Iaroslav_Lasiichuk_Resume .pdf'
+import data from '../data/data'
 
 export default function About() {
   const { bio } = data;
-
+ 
   return (
     <div className="relative isolate min-h-screen px-6 pt-14 lg:px-8">
       <Gradient />
-      <div id="about" className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
+      <div className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
         <div className="text-center">
           <div>
@@ -29,6 +30,16 @@ export default function About() {
               </section>
             ))}
           </div>
+          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                Download resume{" "}
+            <a href={resume}
+                download="Resume Iaroslav Lasiichuk"
+               target="_blank"
+                rel="noreferrer"className="font-semibold text-indigo-600">
+                  <span className="absolute inset-0" aria-hidden="true" />
+                  Click here <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               to="/contact"
@@ -37,7 +48,7 @@ export default function About() {
               Contact Me
             </Link>
             <Link
-              href="https://github.com/IaroslavLasiichuk"
+              to="https://github.com/IaroslavLasiichuk"
               target="blank"
               className="text-sm font-semibold leading-6 text-gray-900"
             >

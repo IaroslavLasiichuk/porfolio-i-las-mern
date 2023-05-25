@@ -1,18 +1,11 @@
-import Gradient from '../components/Gradient'
-import data from '../data/data'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import profileImg from '../assets/IMG_5570.jpg'
-
-const { posts } = data;
+import Gradient from "../components/Gradient";
+import data from "../data/data";
+import profileImg from "../assets/IMG_5570.jpg";
 
 export default function Blog() {
+  const { posts } = data;
   return (
-    <div
-      id="blog"
-      className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col"
-    >
-      <Navbar />
+    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
@@ -21,6 +14,9 @@ export default function Blog() {
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Learn more about HTML, JavaScript and CSS
+            <br />
+            Learning programming can open up a world of opportunities. Here are
+            some excellent resources to help you get started:
           </p>
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-1">
@@ -55,7 +51,7 @@ export default function Blog() {
                 <img
                   src={profileImg}
                   alt=""
-                  className="h-10 w-10 rounded-full bg-gray-50"
+                  className="h-10 w-9 rounded-full bg-gray-50"
                 />
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900">
@@ -71,9 +67,7 @@ export default function Blog() {
           ))}
         </div>
       </div>
-      <div className="bg-white shadow-sm py-0">
-        <Footer />
-      </div>
+      <div className="bg-white shadow-sm py-0"></div>
     </div>
   );
 }
