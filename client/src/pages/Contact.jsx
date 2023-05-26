@@ -1,4 +1,6 @@
-import Gradient from "../components/Gradient";
+import Gradient from '../components/Gradient'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import { useState } from "react";
 
 export default function Contact() {
@@ -52,6 +54,7 @@ export default function Contact() {
     id="contact"
       className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col"
     >
+         <Navbar />
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
@@ -178,7 +181,9 @@ export default function Contact() {
           </form>
         </div>
       </div>
-      <div className="bg-white shadow-sm py-0"></div>
+      <div className="bg-white shadow-sm py-0">
+      <Footer />
+      </div>
     </div>
   );
 }

@@ -1,4 +1,6 @@
-import Gradient from "../components/Gradient";
+import Gradient from '../components/Gradient'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import data from "../data/data";
 import profileImg from "../assets/IMG_5570.jpg";
 
@@ -6,6 +8,7 @@ export default function Blog() {
   const { posts } = data;
   return (
     <div id="blog" className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+        <Navbar />
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
@@ -67,7 +70,9 @@ export default function Blog() {
           ))}
         </div>
       </div>
-      <div className="bg-white shadow-sm py-0"></div>
+      <div className="bg-white shadow-sm py-0">
+      <Footer />
+      </div>
     </div>
   );
 }
