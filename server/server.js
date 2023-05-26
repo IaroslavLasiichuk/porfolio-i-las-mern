@@ -4,11 +4,6 @@ const app = express();
 const nodemailer = require('nodemailer');
 require("dotenv").config();
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3005");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 app.use(cors());
 
 const db = require('./config/connection');
