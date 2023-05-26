@@ -3,7 +3,6 @@ const cors = require('cors');
 const app = express();
 const nodemailer = require('nodemailer');
 require("dotenv").config();
-
 app.use(cors());
 
 const db = require('./config/connection');

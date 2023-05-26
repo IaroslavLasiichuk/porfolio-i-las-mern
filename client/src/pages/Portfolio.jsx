@@ -1,4 +1,6 @@
 import Gradient from '../components/Gradient'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import data from '../data/data'
 
 export default function Portfolio() {
@@ -9,6 +11,7 @@ export default function Portfolio() {
     id="portfolio"
       className="relative isolate bg-white  pt-24 sm:pt-24 flex flex-col"
     >
+         <Navbar />
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
@@ -70,6 +73,7 @@ export default function Portfolio() {
         </div>
       </div>
       <div className="bg-white shadow-sm py-0">
+      <Footer />
       </div>
     </div>
   );
