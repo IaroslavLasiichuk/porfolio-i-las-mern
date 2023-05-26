@@ -5,7 +5,7 @@ import profileImg from "../assets/IMG_5570.jpg";
 export default function Blog() {
   const { posts } = data;
   return (
-    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+    <div id="blog" className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
