@@ -6,6 +6,7 @@ export default function Portfolio() {
 
   return (
     <div
+    id="portfolio"
       className="relative isolate bg-white  pt-24 sm:pt-24 flex flex-col"
     >
       <Gradient />

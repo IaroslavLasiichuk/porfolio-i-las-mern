@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 require("dotenv").config();
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://secure-crag-53984.herokuapp.com");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3005");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.post('/contact', (req, res) => {
+app.post('/send', (req, res) => {
 
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
@@ -44,7 +44,8 @@ app.post('/contact', (req, res) => {
             console.log(err);
         } else {
             console.log('Email sent successfully from server');
-            res.status(200).json({ status: 'success' }); // Send a success response
+            res.status(200).json({ status: 'success' });
+             // Send a success response
         }
     });
 })

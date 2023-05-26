@@ -20,7 +20,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mailerState });
-    const response = await fetch("https://secure-crag-53984.herokuapp.com/contact", {
+    const response = await fetch("http://localhost:3005/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -49,6 +49,7 @@ export default function Contact() {
   };
   return (
     <div
+    id="contact"
       className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col"
     >
       <Gradient />

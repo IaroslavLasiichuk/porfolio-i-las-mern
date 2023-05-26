@@ -4,8 +4,8 @@ import About from './pages/About.jsx'
 import Portfolio from './pages/Portfolio.jsx'
 import Blog from './pages/Blog.jsx'
 import Contact from './pages/Contact.jsx'
-
 import { Route, Routes } from 'react-router-dom'
+
 function App() {
   return (
       <Routes>
