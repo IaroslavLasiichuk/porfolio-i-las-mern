@@ -1,7 +1,7 @@
 import Gradient from '../components/Gradient'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import { useState } from "react";
+import { useState } from 'react'
 
 export default function Contact() {
   const [mailerState, setMailerState] = useState({
@@ -27,7 +27,7 @@ export default function Contact() {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ mailerState }),
+      body: JSON.stringify({mailerState }),
       
     })
       .then((res) => res.json())
