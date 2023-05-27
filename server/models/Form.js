@@ -1,35 +1,24 @@
 const { Schema, model } = require('mongoose');
 
 // Schema to create User model
-const userSchema = new Schema({
+const formSchema = new Schema({
     firstName: {
       type: String,
-      unique: true,
-   
       trim: true
     },
     lastName: {
       type: String,
-      unique: true,
-    
       trim: true
     },
     email: {
       type: String,
-    
-      unique: true,
-      match: [/.+\@.+\..+/, 'Please enter a valid email address']
     },
    company: {
         type: String,
-        unique: true,
-      
         trim: true
       },
       message: {
         type: String,
-        unique: true,
-     
         trim: true
       },
   }, {
@@ -39,6 +28,6 @@ const userSchema = new Schema({
     id: false
   });
 
-const Form = model('Form', userSchema);
+const Form = model('Form', formSchema);
 
 module.exports = Form;

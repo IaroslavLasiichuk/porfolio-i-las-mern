@@ -5,6 +5,7 @@ const app = express();
 const nodemailer = require('nodemailer');
 require("dotenv").config();
 app.use(cors());
+const { Form } = require('./models');
 
 const db = require('./config/connection');
 
@@ -24,33 +25,45 @@ if (process.env.NODE_ENV === "production") {
 }
   
 // Routes
-app.post('/send', (req, res) => {
-
-    let mailTransporter = nodemailer.createTransport({
+app.post('/send', async (req, res) => {
+    try {
+      // Save the form data to the database
+      const newForm = await Form.create(req.body.mailerState);
+      console.log(newForm);
+      // Send the email
+      let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.WORD
+          user: process.env.EMAIL,
+          pass: process.env.WORD
         }
-    });
-
-    let mailDetails = {
+      });
+  
+      let mailDetails = {
         from: `${req.body.mailerState.email}`,
         to: process.env.EMAIL,
         subject: `Message from: ${req.body.mailerState.email}`,
         text: `Name: ${req.body.mailerState.firstName} ${req.body.mailerState.lastName} company:${req.body.mailerState.company}.Message: ${req.body.mailerState.message}`
-    };
-
-    mailTransporter.sendMail(mailDetails, function (err, data) {
+      };
+  
+      mailTransporter.sendMail(mailDetails, function (err, data) {
         if (err) {
-            console.log(err);
+          console.log(err);
+          // Send a failure response if email sending fails
+          res.status(500).json({ status: 'fail' });
         } else {
-            console.log('Email sent successfully from server');
-            res.status(200).json({ status: 'success' });
-             // Send a success response
+          console.log('Email sent successfully from server');
+          // Send a success response if email sending is successful
+          res.status(200).json({ status: 'success' });
         }
-    });
-})
+      });
+    } catch (err) {
+      console.log(err);
+      // Send a failure response if saving to the database fails
+      res.status(500).json({ status: 'fail' });
+    }
+  });
+  
 
 // Start the API server
 db.once('open', () => {
