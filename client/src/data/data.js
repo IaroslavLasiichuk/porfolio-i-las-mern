@@ -108,5 +108,14 @@ const projects = [
   imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ6l4hw1GqQGvb7fJvg-Clw-254H2h8dYk8A&usqp=CAU',
   imageAlt: "JS",
 },
+{
+  id: 7,
+  name: 'Thinker',
+  description:'Thinker is a community-driven question and answer platform designed to connect people seeking knowledge with those who have expertise in various fields.',
+  git:'https://github.com/IaroslavLasiichuk/blog_thinker',
+  link:'https://salty-eyrie-98942.herokuapp.com/',
+  imageSrc: 'https://miro.medium.com/v2/resize:fit:1400/0*GKIyAWHbKbANm7d9.png',
+  imageAlt: "React",
+},
 ]
 export default { navigation, bio, posts, projects };
