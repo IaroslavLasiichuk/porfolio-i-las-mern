@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import logo from '../../public/quickexport.png';
+
 const Logo = () => {
   return (
     <div>

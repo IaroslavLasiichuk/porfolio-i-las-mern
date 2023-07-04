@@ -1,10 +1,5 @@
-const { connect, connection } = require('mongoose');
+const mongoose = require('mongoose');
 
-// Adds  Atlas connection 
-const connectionString =
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolioDB';
-  
-// Connect to MongoDB
-connect(connectionString);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolioIaroslavDB');
 
-module.exports = connection;
+module.exports = mongoose.connection;

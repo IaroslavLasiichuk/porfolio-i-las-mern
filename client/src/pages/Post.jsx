@@ -1,15 +1,15 @@
 import Navbar from "../components/Navbar";
-import Post from "../components/Post";
+import SinglePost from "../components/SinglePost";
 import Footer from "../components/Footer";
 
-const Blog = () => {
+const Post = () => {
   return (
     <>
       <Navbar />
-      <Post />
+      <SinglePost />
       <Footer />
     </>
   );
 };
 
-export default Blog;
+export default Post;

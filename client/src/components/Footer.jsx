@@ -1,4 +1,4 @@
-export default function Footer() {
+function Footer() {
   
   return (
     <section className="bg-white">
@@ -63,3 +63,5 @@ export default function Footer() {
     </section>
   );
 }
+
+export default Footer;

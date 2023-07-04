@@ -51,6 +51,21 @@ const posts = [
       role: 'Web Developer',
     },
   },
+  {
+    id: 4,
+    title: 'Create a New Repository',
+    href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    description:
+      'Creating a repository is something you\'ll need to do often—every time you start working on a new project, in fact. To create a new repository on GitHub, follow these steps...',
+    content: 'Jul 28, 2023',
+    date: 'Jul 28, 2023',
+    category: { title: 'GitHub'},
+    link: 'Read more and comment',
+    author: {
+      name: 'Iaroslav Lasiichuk',
+      role: 'Web Developer',
+    },
+  },
 ]
 const projects = [
 {

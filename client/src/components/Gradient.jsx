@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Gradient() {
+function Gradient() {
   return (
     <>
       <div
@@ -18,3 +16,5 @@ export default function Gradient() {
     </>
   );
 }
+
+export default Gradient;
