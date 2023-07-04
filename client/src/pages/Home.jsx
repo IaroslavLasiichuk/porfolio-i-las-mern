@@ -1,15 +1,15 @@
 import Navbar from "../components/Navbar";
-import Project from "../components/Project";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Portfolio = () => {
+const Home = () => {
     return (
         <>
          <Navbar/>   
-         <Project/>   
+         <Header/>   
          <Footer/>   
         </>
     )
 }
 
-export default Portfolio;
+export default Home;

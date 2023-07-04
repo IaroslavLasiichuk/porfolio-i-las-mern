@@ -3,14 +3,27 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const nodemailer = require('nodemailer');
+const { authMiddleware } = require('./utils/auth');
 require("dotenv").config();
 app.use(cors());
 const { Form } = require('./models');
 
+// Import the ApolloServer class
+const { typeDefs, resolvers } = require("./schemas");
+const { ApolloServer } = require("apollo-server-express");
+
 const db = require('./config/connection');
 
 // Port
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3000;
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  context: authMiddleware,
+  persistedQueries: false
+});
 
 // Static route to serve up the content of our built webpack bundle which is located in the dist folder
 app.use(express.static('../client/dist'));
@@ -24,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
     });
 }
   
-// Routes
+// Form send
 app.post('/send', async (req, res) => {
     try {
       // Save the form data to the database
@@ -63,11 +76,18 @@ app.post('/send', async (req, res) => {
       res.status(500).json({ status: 'fail' });
     }
   });
-  
 
-// Start the API server
-db.once('open', () => {
+  const startApolloServer = async () => {
+    await server.start();
+    server.applyMiddleware({ app });
+
+    db.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`Server is running at http://localhost:${PORT}`);
+        console.log(`✅Server is running at http://localhost:${PORT}`);
+        console.log(`💣Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
 });
+};
+
+// Call the async function to start the server
+startApolloServer();
