@@ -12,7 +12,6 @@ import { QUERY_THOUGHTS } from '../utils/queries';
 
 function Post() {
   const { loading, error, data } = useQuery(QUERY_POSTS);
-  
   if (loading) {
     // Handle loading state, e.g., display a loading spinner
     return (
@@ -153,7 +152,7 @@ function Post() {
             </article>
           ))}
         </div>
-        {/* <AddPost/> */}
+        {Auth.isAdmin() === true ? (<AddPost/>) :( null)}
       </div>
       <div className="bg-white shadow-sm py-0"></div>
     </div>

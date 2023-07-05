@@ -36,6 +36,13 @@ class AuthService {
     localStorage.removeItem('id_token');
     window.location.assign('/login');
   }
+
+  isAdmin(){
+  const admin = this.getProfile();
+  const isAdmin = admin.data.isAdmin;
+  return isAdmin;
+  }
+   
 }
 
 export default new AuthService();
