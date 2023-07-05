@@ -44,6 +44,7 @@ const AddPost = () => {
       [name]: value,
     }));
   };
+  
   return (
     <>
       <h3 className="mt-3 text-lg text-center font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
