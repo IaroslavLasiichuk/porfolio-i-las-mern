@@ -111,14 +111,20 @@ const SinglePost = () => {
                           {post.comments.map((comment) => (
                             <div key={comment._id}>
                               <div>
-                                <div className="bg-violet-100 m-5 rounded-3xl px-4 pt-2 pb-2.5">
-                                  <div className="font-semibold text-sm leading-relaxed">
-                                    {comment.commentAuthor}
-                                  </div>
+                                <div className="bg-violet-100 mt-5 rounded-3xl px-4 pt-2 pb-2.5">
                                   <div className="text-normal leading-snug md:leading-normal">
                                     {comment.commentText}
                                   </div>
                                 </div>
+                              </div>
+                              <div className="font-semibold text-xs leading-relaxed">
+                                <p className="font-semibold text-gray-500">
+                                  <a>Author: {comment.commentAuthor}</a>
+                                </p>
+
+                                <time className="text-gray-500">
+                                  Created at: {comment.createdAt}
+                                </time>
                               </div>
                             </div>
                           ))}

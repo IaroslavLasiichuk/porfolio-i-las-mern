@@ -33,7 +33,7 @@ const AddPost = () => {
           content: formState.content,
         },
       });
-      setFormState({ title: "", descriptin: "", content: "" });
+      setFormState({ title: "", description: "", content: "" });
     } catch (err) {}
   };
 
