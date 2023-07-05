@@ -42,7 +42,6 @@ class AuthService {
   const isAdmin = admin.data.isAdmin;
   return isAdmin;
   }
-   
 }
 
 export default new AuthService();

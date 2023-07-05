@@ -3,7 +3,6 @@ import Gradient from "../components/Gradient";
 import Comment from "../components/Comment";
 import AddPost from "../components/AddPost";
 import { Link } from "react-router-dom";
-import data from "../data/data";
 import profileImg from "../assets/IMG_5570.jpg";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
@@ -152,7 +151,7 @@ function Post() {
             </article>
           ))}
         </div>
-        {Auth.isAdmin() === true ? (<AddPost/>) :( null)}
+        {Auth.loggedIn() && Auth.isAdmin() === true ? (<AddPost/>) :( null)}
       </div>
       <div className="bg-white shadow-sm py-0"></div>
     </div>
