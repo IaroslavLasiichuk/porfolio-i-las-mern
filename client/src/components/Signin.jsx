@@ -5,7 +5,7 @@ import Gradient from "../components/Gradient";
 import Footer from "../components/Footer";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
-import logo from "../assets/quickexport.png";
+import logo from "../assets/favicon.ico";
 
 function Signin() {
   const [formState, setFormState] = useState({ email: "", password: "" });

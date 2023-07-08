@@ -5,7 +5,7 @@ import Gradient from "../components/Gradient";
 import Footer from "../components/Footer";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import logo from "../assets/quickexport.png";
+import logo from "../assets/favicon.ico";
 
 function Signup() {
   const [formState, setFormState] = useState({
