@@ -6,10 +6,8 @@ import { useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_ME } from "../utils/queries";
 import { QUERY_SINGLE_POST } from "../utils/queries";
-// import { UPDATE_POST} from "../utils/mutations";
 
 const SinglePost = () => {
-  //   const { loading, error, data } = useQuery(QUERY_ME);
   const { postId } = useParams();
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
@@ -65,7 +63,6 @@ const SinglePost = () => {
                       Getting Started with Git Hub
                     </p>
                   </h3>
-                  {Auth.loggedIn() ? (
                     <>
                       <p className="mt-5 text-sm leading-6 text-gray-600">
                         {post.content}
@@ -132,29 +129,6 @@ const SinglePost = () => {
                       )}
                       <Comment postId={post._id} />
                     </>
-                  ) : (
-                    <div
-                      className="flex bg-blue-100 rounded-lg p-4 mb-4 text-sm text-blue-700"
-                      role="alert"
-                    >
-                      <svg
-                        className="w-5 h-5 inline mr-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                      <div>
-                        <span className="font-medium">Please Login!</span> You
-                        need to be logged in to read post
-                      </div>
-                    </div>
-                  )}
                 </div>
               </article>
             </div>

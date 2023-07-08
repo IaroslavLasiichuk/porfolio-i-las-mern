@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Gradient from "../components/Gradient";
 import Comment from "../components/Comment";
 import AddPost from "../components/AddPost";
@@ -7,7 +7,7 @@ import profileImg from "../assets/IMG_5570.jpg";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_THOUGHTS } from "../utils/queries";
 
 function Post() {
   const { loading, error, data } = useQuery(QUERY_POSTS);
@@ -85,57 +85,32 @@ function Post() {
                 <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
                   {post.description}
                 </p>
-                {!Auth.loggedIn() ? (
-                  <div
-                    className="flex bg-blue-100 rounded-lg p-4 mb-4 text-sm text-blue-700"
-                    role="alert"
+                <>
+                  <Link
+                    to={`/posts/${post._id}`}
+                    className="relative z-10 rounded-full bg-gray-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
                   >
+                    Read more and comment
                     <svg
-                      className="w-5 h-5 inline mr-3"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clipRule="evenodd"
-                      ></path>
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
                     </svg>
-                    <div>
-                      <span className="font-medium">Please Login!</span> You need to
-                      be logged in to read post
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <Link
-                      to={`/posts/${post._id}`}
-                      className="relative z-10 rounded-full bg-gray-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
-                    >
-                      Read more and comment
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </Link>
-                  </>
-                )}
+                  </Link>
+                </>
               </div>
-             
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img
                   src={profileImg}
-                  alt=""
+                  alt="Admin image"
                   className="h-10 w-9 rounded-full bg-gray-50"
                 />
                 <div className="text-sm leading-6">
@@ -151,7 +126,7 @@ function Post() {
             </article>
           ))}
         </div>
-        {Auth.loggedIn() && Auth.isAdmin() === true ? (<AddPost/>) :( null)}
+        {Auth.loggedIn() && Auth.isAdmin() === true ? <AddPost /> : null}
       </div>
       <div className="bg-white shadow-sm py-0"></div>
     </div>
