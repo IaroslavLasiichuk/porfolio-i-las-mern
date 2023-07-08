@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import Auth from "../utils/auth";
 import data from "../data/data";
-import logo from "../assets/quickexport.png";
+import logo from "../assets/favicon.ico";
 
 const { navigation } = data;
 
