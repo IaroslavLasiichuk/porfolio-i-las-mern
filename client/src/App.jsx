@@ -18,6 +18,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
+  // uri: 'http://localhost:3000/graphql',
   uri: 'https://secure-crag-53984.herokuapp.com/graphql',
 });
 
@@ -44,7 +45,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="portfolio" element={<Portfolio/>} />
         <Route path="blog" element={<Blog/>} />
-        <Route path="posts/:postId" element={<Thought />} />
+        <Route path="posts/:postId" element={<Post />} />
         <Route path="contact" element={<Contact/>} />
         <Route path="login" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
