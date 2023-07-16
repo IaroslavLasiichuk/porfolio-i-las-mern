@@ -7,7 +7,7 @@ const navigation = [
 const bio = [
 {
   title: "Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer",
-  content: "Hi, everyone!I'm a young aspiring junior web developer with a passion for technology and a strong desire to make a difference in the world. I'm constantly seeking new challenges and opportunities to learn and grow as a developer"
+  content: "Hi, everyone! I'm a young aspiring junior web developer with a passion for technology and a strong desire to make a difference in the world. I'm constantly seeking new challenges and opportunities to learn and grow as a developer"
 }
 ]
 
