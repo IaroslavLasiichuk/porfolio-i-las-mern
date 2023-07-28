@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -10,6 +10,39 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_GET_ALL_USERS = gql`
+  query getUsers {
+    getUsers {
+      _id
+      username
+      email
+      posts{
+        title
+        description
+        content
+        category
+        author
+        role
+        createdAt
+        updatedAt
+      
+      }
+      thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+    }
+  }
+`;
+
 export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {
@@ -17,19 +50,19 @@ export const QUERY_THOUGHTS = gql`
       thoughtText
       thoughtAuthor
       createdAt
-      comments{
+      comments {
         _id
-    commentText
-    commentAuthor
-    createdAt
+        commentText
+        commentAuthor
+        createdAt
       }
     }
   }
 `;
 
 export const QUERY_POSTS = gql`
-  query getPosts {
-   posts {
+  query posts {
+    posts {
       _id
       title
       description
@@ -39,16 +72,15 @@ export const QUERY_POSTS = gql`
       role
       createdAt
       updatedAt
-      comments{
+      comments {
         _id
-    commentText
-    commentAuthor
-    createdAt
+        commentText
+        commentAuthor
+        createdAt
       }
     }
   }
 `;
-
 
 export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
@@ -79,11 +111,11 @@ export const QUERY_SINGLE_POST = gql`
       role
       createdAt
       updatedAt
-      comments{
+      comments {
         _id
-    commentText
-    commentAuthor
-    createdAt
+        commentText
+        commentAuthor
+        createdAt
       }
     }
   }
@@ -95,13 +127,23 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      posts {
+      _id
+      title
+      description
+      content
+      category
+      author
+      role
+      createdAt
+      updatedAt
+      comments {
         _id
-        thoughtText
-        thoughtAuthor
+        commentText
+        commentAuthor
         createdAt
-        updatedAt
       }
+    }
     }
   }
 `;

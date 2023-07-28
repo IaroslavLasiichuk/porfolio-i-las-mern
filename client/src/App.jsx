@@ -3,6 +3,8 @@ import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
 import Post from './pages/Post'
 import Contact from './pages/Contact'
+import AdminPanel from './pages/AdminPanel'
+import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Registration from './pages/Registration'
 import NotFound from './pages/NotFound'
@@ -18,8 +20,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:3000/graphql',
-  uri: 'https://secure-crag-53984.herokuapp.com/graphql',
+  uri: 'http://localhost:3000/graphql',
+  // uri: 'https://secure-crag-53984.herokuapp.com/graphql',
   // uri: 'https://www.lamur.us/graphql',
 });
 
@@ -48,6 +50,8 @@ function App() {
         <Route path="blog" element={<Blog/>} />
         <Route path="posts/:postId" element={<Post />} />
         <Route path="contact" element={<Contact/>} />
+        <Route path="admin" element={<AdminPanel/>} />
+        <Route path="dashboard" element={<Dashboard/>} />
         <Route path="login" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
         <Route path="*" element={<NotFound/>} />

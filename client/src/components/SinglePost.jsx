@@ -60,7 +60,7 @@ const SinglePost = () => {
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                     <p className="mt-2 text-lg leading-8 text-gray-600">
                       <br />
-                      Getting Started with Git Hub
+                      {post.description}
                     </p>
                   </h3>
                     <>

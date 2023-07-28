@@ -1,54 +1,9 @@
 import Gradient from "../components/Gradient";
-import { useState } from "react";
+import { useFormState } from "../hooks/useFormState";
 
 function Form() {
-  const [mailerState, setMailerState] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+  const { mailerState, handleStateChange, submitEmail } = useFormState();
 
-  function handleStateChange(e) {
-    setMailerState((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  }
-
-  const submitEmail = async (e) => {
-    e.preventDefault();
-    console.log({ mailerState });
-    const response = await fetch(
-      "https://secure-crag-53984.herokuapp.com/send",
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ mailerState }),
-      }
-    )
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        if (resData.status === "success") {
-          alert("Message Sent");
-        } else if (resData.status === "fail") {
-          alert("Message failed to send");
-        }
-      })
-      .then(() => {
-        setMailerState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          company: "",
-          message: "",
-        });
-      });
-  };
   return (
     <div
       id="contact"
@@ -87,8 +42,8 @@ function Form() {
                     id="firstName"
                     required
                     autoComplete="first-name"
-                    className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    />
+                    className="block mb-3 px-3 w-full p-3 text-sm text-black-800 bg-white rounded-lg border focus:ring-0 dark:text-black dark:placeholder-gray-400"
+                  />
                 </div>
               </div>
               <div>
@@ -107,8 +62,8 @@ function Form() {
                     id="lastName"
                     required
                     autoComplete="family-name"
-                    className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    />
+                    className="block mb-3 px-3 w-full p-3 text-sm text-black-800 bg-white rounded-lg border focus:ring-0 dark:text-black dark:placeholder-gray-400"
+                  />
                 </div>
               </div>
 
@@ -128,8 +83,8 @@ function Form() {
                     id="email"
                     required
                     autoComplete="email"
-                    className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    />
+                    className="block mb-3 px-3 w-full p-3 text-sm text-black-800 bg-white rounded-lg border focus:ring-0 dark:text-black dark:placeholder-gray-400"
+                  />
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -148,11 +103,10 @@ function Form() {
                     id="company"
                     required
                     autoComplete="company"
-                    className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    />
+                    className="block mb-3 px-3 w-full p-3 text-sm text-black-800 bg-white rounded-lg border focus:ring-0 dark:text-black dark:placeholder-gray-400"
+                  />
                 </div>
               </div>
-
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
@@ -168,8 +122,8 @@ function Form() {
                     id="message"
                     required
                     rows={4}
-                    className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    />
+                    className="block mb-3 px-3 w-full p-3 text-sm text-black-800 bg-white rounded-lg border focus:ring-0 dark:text-black dark:placeholder-gray-400"
+                  />
                 </div>
               </div>
             </div>
@@ -185,8 +139,7 @@ function Form() {
           </form>
         </div>
       </div>
-      <div className="bg-white shadow-sm py-0">
-      </div>
+      <div className="bg-white shadow-sm py-0"></div>
     </div>
   );
 }

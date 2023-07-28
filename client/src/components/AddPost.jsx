@@ -1,58 +1,45 @@
-import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
-import { QUERY_ME } from "../utils/queries";
-import { ADD_POST } from "../utils/mutations";
+import { useAddPost } from "../hooks/useAddPost";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ME} from "../utils/queries";
 
 const AddPost = () => {
-  const [formState, setFormState] = useState({
-    title: "",
-    description: "",
-    content: "",
-  });
-
-  const [addPost] = useMutation(ADD_POST, {
-    onCompleted: ({ addPost }) => {
-      setFormState({ title: "", description: "", content: "" });
-    },
-    refetchQueries: [{ query: QUERY_ME }, { query: QUERY_POSTS }],
-  });
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
-    if (!formState.title || !formState.description || !formState.content) {
-      alert("Please enter text!!!");
-      return;
+  const { loading, error, data } = useQuery(QUERY_ME);
+  const { formState, setFormState, addPost, handleFormSubmit, handleChange } =
+    useAddPost();
+    if (loading) {
+      // Handle loading state, e.g., display a loading spinner
+      return (
+        <div
+          className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          role="status"
+        >
+          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+            Loading...
+          </span>
+        </div>
+      );
     }
-    try {
-      addPost({
-        variables: {
-          title: formState.title,
-          description: formState.description,
-          content: formState.content,
-        },
-      });
-      setFormState({ title: "", description: "", content: "" });
-    } catch (err) {}
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
   
+    if (error) {
+      // Handle error state, e.g., display an error message
+      return (
+        <div>
+          Error: {error.message}
+          <div>
+            <h2>
+              Please login <p>to comment a post</p>
+            </h2>
+            <a>GO HOME</a>
+          </div>
+        </div>
+      );
+    }
+    const { me } = data;
   return (
     <>
-      <h3 className="mt-3 text-lg text-center font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-        Create a new post
-      </h3>
       <div className="max-w-2xl mx-auto m-5">
         <form onSubmit={handleFormSubmit}>
-          <div className="py-2 px-4 bg-white rounded-b-lg ">
+          <div className="rounded-b-lg ">
             <input
               required
               name="title"
@@ -77,7 +64,7 @@ const AddPost = () => {
               Publish post
             </label>
             <textarea
-               required
+              required
               name="content"
               type="text"
               value={formState.content}
