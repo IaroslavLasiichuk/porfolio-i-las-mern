@@ -7,6 +7,9 @@ const resolvers = {
     users: async () => {
       return User.find().populate("thoughts");
     },
+    getUsers: async () => {
+      return await User.find();
+    },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("thoughts");
     },
@@ -24,7 +27,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("thoughts");
+        return User.findOne({ _id: context.user._id }).populate("posts");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -60,12 +63,14 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { title, description, content }, context) => {
+    addPost: async (parent, { title, description, content, author }, context) => {
       console.log(context.user);
       if (context.user) {
         const post = await Post.create({
-          title, description, content,
-         postAuthor: context.user.username,
+          title,
+          description,
+          content,
+          author: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -82,7 +87,6 @@ const resolvers = {
       { postId, commentText, commentAuthor },
       context
     ) => {
-
       if (context.user) {
         try {
           // Find the thought by ID
@@ -90,7 +94,6 @@ const resolvers = {
           if (!post) {
             throw new Error("Post not found");
           }
-
           // Create a new comment object
           const newComment = {
             commentText,
@@ -146,6 +149,21 @@ const resolvers = {
         );
 
         return thought;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const post = await Post.findOneAndDelete({
+          _id: postId,
+          author: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } }
+        );
+        return post;
       }
       throw new AuthenticationError("You need to be logged in!");
     },

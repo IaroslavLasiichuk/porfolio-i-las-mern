@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
+    posts: [Post]!
   }
 
   type Thought {
@@ -45,6 +46,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    getUsers: [User]
     user(username: String!): User
     thoughts: [Thought]!
     posts: [Post]!
@@ -65,6 +67,7 @@ const typeDefs = gql`
     ): Post
     updateThought(thoughtId: ID!, thoughtText: String!): Thought!
     removeThought(thoughtId: ID!): Thought
+    removePost(postId: ID!): Post
     removeComment(thoughtId: ID!, commentId: ID!): Thought
   }
 `;

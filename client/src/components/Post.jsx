@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Gradient from "../components/Gradient";
 import Comment from "../components/Comment";
-import AddPost from "../components/AddPost";
 import { Link } from "react-router-dom";
 import profileImg from "../assets/IMG_5570.jpg";
 import Auth from "../utils/auth";
@@ -126,9 +125,7 @@ function Post() {
             </article>
           ))}
         </div>
-        {Auth.loggedIn() && Auth.isAdmin() === true ? <AddPost /> : null}
       </div>
-      <div className="bg-white shadow-sm py-0"></div>
     </div>
   );
 }

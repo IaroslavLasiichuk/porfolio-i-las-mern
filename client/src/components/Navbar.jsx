@@ -48,6 +48,22 @@ function Navbar() {
                 {item.name}
               </Link>
             ))}
+            {Auth.loggedIn() && Auth.isAdmin() ? (
+              <Link
+                className="text-sm font-semibold leading-6 text-gray-900"
+                to="/admin"
+              >
+                Admin Panel
+              </Link>
+            ) : null}
+            {Auth.loggedIn() ? (
+              <Link
+                className="text-sm font-semibold leading-6 text-gray-900"
+                to="/dashboard"
+              >
+                Dashboard
+              </Link>
+            ) : null}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             {Auth.loggedIn() ? (
@@ -82,7 +98,7 @@ function Navbar() {
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img className="h-8 w-auto" src={logo} alt="" />
+                <img className="h-12 w-auto" src={logo} alt="" />
               </Link>
               <button
                 type="button"
@@ -106,18 +122,37 @@ function Navbar() {
                       {item.name}
                     </Link>
                   ))}
+                  {Auth.loggedIn() && Auth.isAdmin() ? (
+                    <Link
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      to="/admin"
+                    >
+                      Admin Panel
+                    </Link>
+                  ) : null}
+                  {Auth.loggedIn() ? (
+                    <Link
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      to="/dashboard"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : null}
                 </div>
                 <div className="py-6">
                   {Auth.loggedIn() ? (
                     <>
-                      <button  onClick={Auth.logout} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                      <button
+                        onClick={Auth.logout}
+                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
                         Log out <span aria-hidden="true">&rarr;</span>
                       </button>
                     </>
                   ) : (
                     <>
                       <Link
-                      to="/login"
+                        to="/login"
                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       >
                         Log in<span aria-hidden="true">&larr;</span>
