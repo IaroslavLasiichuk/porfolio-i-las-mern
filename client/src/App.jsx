@@ -20,8 +20,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3000/graphql',
-  // uri: 'https://secure-crag-53984.herokuapp.com/graphql',
+  // uri: 'http://localhost:3000/graphql',
+  uri: 'https://secure-crag-53984.herokuapp.com/graphql',
   // uri: 'https://www.lamur.us/graphql',
 });
 
