@@ -3,7 +3,7 @@ Disallow: /search
 Disallow: /search?*
 Disallow: /login
 
-Sitemap: http://www.lamur.us/sitemap_index.xml
+Sitemap: http://www.lamur.us/sitemap_index.html
 
 User-Agent: AdsBot-Google
 Disallow: /search
