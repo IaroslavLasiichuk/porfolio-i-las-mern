@@ -3,7 +3,7 @@ Disallow: /search
 Disallow: /search?*
 Disallow: /login
 # etc etc
-Sitemap: https://www.lamur.us/sitemap_index.xml
+Sitemap: http://www.lamur.us/sitemap_index.xml
 
 # Google adsbot ignores robots.txt unless specifically named
 # This bot is used by Google to review landing pages for Google Ads
