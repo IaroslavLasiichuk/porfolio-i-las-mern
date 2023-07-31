@@ -2,4 +2,4 @@ User-Agent: AdsBot-Google
 Disallow: /search
 Disallow: /search?*
 
-Sitemap: http://www.lamur.us/sitemap.xml
+Sitemap: http://www.lamur.us/sitemap_index.xml
