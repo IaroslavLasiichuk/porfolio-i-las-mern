@@ -4,10 +4,10 @@
 
 As a web developer, it's important to have a strong online presence to showcase your work and collaborate with other developers.
 
-## Link to deployed application on Git Hub pages
+## Link to deployed application
 
 
-Link to deployed application  [Click](https://secure-crag-53984.herokuapp.com/)
+Link to deployed application  [Click](https://www.lamur.us)
 
 ## Installation
 
