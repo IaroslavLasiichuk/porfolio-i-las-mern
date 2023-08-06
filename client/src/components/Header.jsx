@@ -2,7 +2,6 @@ import Gradient from "../components/Gradient";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import resume from "../assets/Iaroslav_Lasiichuk_ResumeLA.pdf";
-import data from "../data/data";
 
 function Header() {
   const { bio } = data;
@@ -14,22 +13,20 @@ function Header() {
         <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
         <div className="text-center">
           <div>
-            {bio.map((info, index) => (
-              <section key={index}>
+          
+              <section>
                 <h1
-                  key={info.id}
                   className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl"
                 >
-                  {info.title}
+                Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
                 </h1>
                 <p
-                  key={info.id}
                   className="m-6 text-lg leading-8 text-gray-600"
                 >
-                  {info.content}
+                 Hi, everyone! I'm a young aspiring Full Stack Web developer with a passion for technology and a strong desire to make a difference in the world. I'm constantly seeking new challenges and opportunities to learn and grow as a developer
                 </p>
               </section>
-            ))}
+       
           </div>
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
             Download resume{" "}
