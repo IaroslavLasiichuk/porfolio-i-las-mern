@@ -4,8 +4,6 @@ import Auth from "../utils/auth";
 import resume from "../assets/Iaroslav_Lasiichuk_ResumeLA.pdf";
 
 function Header() {
-  const { bio } = data;
-
   return (
     <div className="relative isolate min-h-screen px-6 pt-14 lg:px-8">
       <Gradient />
