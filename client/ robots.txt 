@@ -1,5 +1,6 @@
-User-Agent: AdsBot-Google
-Disallow: /search
-Disallow: /search?*
+User-agent: Googlebot
+Disallow:/admin
+Allow: /blog
+Allow: /contact
 
-Sitemap: https://www.lamur.us/sitemap_index.xml
+Sitemap:https://www.lamur.us/sitemap_index.xml
