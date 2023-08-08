@@ -4,6 +4,9 @@ const path = require('path');
 const app = express();
 const nodemailer = require('nodemailer');
 const { authMiddleware } = require('./utils/auth');
+const robots = require("express-robots-txt");
+const { generate_sitemap } = require('./sitemap_generator');
+
 require("dotenv").config();
 app.use(cors());
 const { Form } = require('./models');
@@ -29,6 +32,18 @@ const server = new ApolloServer({
 app.use(express.static('../client/dist'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// SEO
+app.use(
+  robots({
+    UserAgent: "*",
+    Disallow: "",
+    Sitemap: "https://www.lamur.us/sitemap.xml"
+  })
+);
+
+app.get('/sitemap.xml', generate_sitemap)
+
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('../client/dist'));
@@ -76,6 +91,7 @@ app.post('/send', async (req, res) => {
       res.status(500).json({ status: 'fail' });
     }
   });
+
 
   const startApolloServer = async () => {
     await server.start();
