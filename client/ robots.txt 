@@ -1,6 +1,5 @@
-User-agent: Googlebot
-Disallow:/admin
-Allow: /blog
-Allow: /contact
+user-agent: *
+
+disallow: /
 
 Sitemap:https://www.lamur.us/sitemap_index.xml
