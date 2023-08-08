@@ -25,6 +25,8 @@ function Navbar() {
                 className="h-12 w-auto"
                 src={logo}
                 alt="Logo Iaroslav Lasiichuk"
+                width="120"
+                height="auto"
               />
             </Link>
           </div>
