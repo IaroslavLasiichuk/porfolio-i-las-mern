@@ -19,7 +19,7 @@ export const useFormState = () => {
 
   const submitEmail = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://secure-crag-53984.herokuapp.com/send", {
+    const response = await fetch("https://www.lamur.us/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
