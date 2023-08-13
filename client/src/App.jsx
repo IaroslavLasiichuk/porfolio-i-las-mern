@@ -1,3 +1,4 @@
+import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home'
 import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
@@ -40,9 +41,26 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    User: {
+      fields: {
+        posts: {
+          merge(existing = [], incoming) {
+          
+            return [...existing, ...incoming];
+          },
+        },
+      },
+    },
+  },
+});
+
 import { Route, Routes, useNavigate} from 'react-router-dom'
 function App() {
+  const helmetContext = {};
   return (
+    <HelmetProvider context={helmetContext}>
     <ApolloProvider client={client}>
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -57,6 +75,7 @@ function App() {
         <Route path="*" element={<NotFound/>} />
       </Routes>
       </ApolloProvider>
+      </HelmetProvider>
   )
 }
 
