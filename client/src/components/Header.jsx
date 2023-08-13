@@ -16,7 +16,7 @@ function Header() {
                 <h1
                   className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl"
                 >
-                Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
+                Hi, My name is Iaroslav Lasiichuk I'm Full Stack Web Developer
                 </h1>
                 <p
                   className="m-6 text-lg leading-8 text-gray-600"
