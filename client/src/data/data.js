@@ -63,7 +63,7 @@ const posts = [
     link: 'Read more and comment',
     author: {
       name: 'Iaroslav Lasiichuk',
-      role: 'Web Developer',
+      role: 'Full Stack Web Developer || Owner',
     },
   },
 ]

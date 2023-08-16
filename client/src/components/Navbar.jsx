@@ -1,9 +1,9 @@
+import React from "react";
 import Gradient from "../components/Gradient";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import Auth from "../utils/auth";
 import data from "../data/data";
 import logo from "../assets/favicon.ico";
@@ -12,6 +12,7 @@ const { navigation } = data;
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   return (
     <div className="bg-white">
       <header className="fixed-nav absolute inset-x-0 top-0 z-50">
@@ -22,6 +23,7 @@ function Navbar() {
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
               <img
+                title="Iaroslav Lasiichuk"
                 className="h-12 w-auto"
                 src={logo}
                 alt="Logo Iaroslav Lasiichuk"

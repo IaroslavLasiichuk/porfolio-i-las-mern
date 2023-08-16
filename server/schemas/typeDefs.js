@@ -6,6 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    isAdmin: Boolean
     thoughts: [Thought]!
     posts: [Post]!
   }
@@ -26,6 +27,7 @@ const typeDefs = gql`
     content: String
     category: String
     author: String
+    authorId: String
     role: String
     createdAt: String
     updatedAt: String
@@ -57,6 +59,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    removeUser(userId: ID!): User
     login(email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
     addPost(title: String!, description: String!, content: String!): Post

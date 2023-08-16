@@ -127,6 +127,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      isAdmin
       posts {
       _id
       title

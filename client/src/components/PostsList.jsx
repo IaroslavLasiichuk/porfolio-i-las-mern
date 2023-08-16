@@ -1,29 +1,22 @@
 import React from "react";
-import Edit from "./Edit";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 import { useDeletePost } from "../hooks/useDeletePost";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 
-const CommentsList = ({ postId }) => {
+const PostsList = ({ postId }) => {
   const { loading, error, data } = useQuery(QUERY_ME);
   const { removePost, handleDeletePost } = useDeletePost();
+
   if (loading) {
     // Handle loading state, e.g., display a loading spinner
-    return (
-      <div
-        className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      >
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...
-        </span>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (error) {
     // Handle error state, e.g., display an error message
-    return <div>Error: {error.message}</div>;
+    return <Error message={error} />;
   }
 
   // Destructure the user data from the response
@@ -41,6 +34,13 @@ const CommentsList = ({ postId }) => {
         <div className="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
           <div className="py-2 inline-block min-w-full">
             <div className="overflow-hidden">
+              <h2 className="text-3xl text-center tracking-tight text-grey-900 sm:text-3xl">
+                List of Posts
+              </h2>
+              <p className="m-2 text-center text-lg leading-8 text-gray-600">
+                <br />
+                Delete post
+              </p>
               <table className="min-w-full">
                 <thead className="bg-gray-200 border-b">
                   <tr>
@@ -96,4 +96,4 @@ const CommentsList = ({ postId }) => {
   );
 };
 
-export default CommentsList;
+export default PostsList;

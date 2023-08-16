@@ -1,50 +1,34 @@
 import React, { useState } from "react";
 import Gradient from "../components/Gradient";
 import Comment from "../components/Comment";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 import { Link } from "react-router-dom";
 import profileImg from "../assets/IMG_5570.jpg";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
-import { QUERY_THOUGHTS } from "../utils/queries";
+import { QUERY_POSTS, QUERY_ME } from "../utils/queries";
 
 function Post() {
   const { loading, error, data } = useQuery(QUERY_POSTS);
   if (loading) {
     // Handle loading state, e.g., display a loading spinner
     return (
-      <div
-        className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      >
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...
-        </span>
-      </div>
+     <Loading/>
     );
   }
-
   if (error) {
-    // Handle error state, e.g., display an error message
+    // Handle error state
     return (
-      <div>
-        Error: {error.message}
-        <div>
-          <h2>
-            Please login <p>to comment a post</p>
-          </h2>
-          <a>GO HOME</a>
-        </div>
-      </div>
+     <Error message={error}/>
     );
   }
 
-  // Destructure the user data from the response
-  const { posts } = data;
-
+  // Extract data from the queries
+  const posts = data?.posts;
+ 
   return (
     <div
-      id="blog"
       className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col"
     >
       <Gradient />
@@ -107,11 +91,6 @@ function Post() {
                 </>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
-                <img
-                  src={profileImg}
-                  alt="Admin image"
-                  className="h-10 w-9 rounded-full bg-gray-50"
-                />
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900">
                     <a>

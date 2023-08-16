@@ -1,6 +1,8 @@
 import React from "react";
 import AddPost from "../components/AddPost";
-import CommentsList from "../components/CommentsList";
+import PostsList from "../components/PostsList";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 import Gradient from "../components/Gradient";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
@@ -10,21 +12,12 @@ const Dash = () => {
 
   if (loading) {
     // Handle loading state, e.g., display a loading spinner
-    return (
-      <div
-        className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      >
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...
-        </span>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (error) {
     // Handle error state, e.g., display an error message
-    return <div>Error: {error.message}</div>;
+    return <Error message={error} />;
   }
   const { me } = data;
 
@@ -37,7 +30,8 @@ const Dash = () => {
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Hi, {me.username}
+            Hi,
+             {me.username}
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             <br />
@@ -46,7 +40,9 @@ const Dash = () => {
         </div>
         <div className="m-4">
           <AddPost />
-          <CommentsList />
+          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-1">
+            </div>
+          <PostsList />
         </div>
       </div>
     </div>

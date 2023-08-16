@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { QUERY_ME } from "../utils/queries";
+
 
 const Comment = ({ postId }) => {
-  const { loading, error, data } = useQuery(QUERY_ME);
   const [commentText, setCommentText] = useState("");
   const [addComment, { err }] = useMutation(ADD_COMMENT);
 
@@ -32,49 +30,6 @@ const Comment = ({ postId }) => {
       setCommentText(value);
     }
   };
-
-  if (loading) {
-    // Handle loading state, e.g., display a loading spinner
-    return (
-      <div
-        className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      >
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...
-        </span>
-      </div>
-    );
-  }
-
-  if (error) {
-    // Handle error state, e.g., display an error message
-    return (
-      <div>
-        <div
-          className="flex bg-blue-100 rounded-lg p-4 mb-4 text-sm text-blue-700"
-          role="alert"
-        >
-          <svg
-            className="w-5 h-5 inline mr-3"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          <div>
-            <span className="font-medium">Please Login!</span> You need to be
-            logged in to comment a post
-          </div>
-        </div>
-      </div>
-    );
-  }
-  const { me } = data;
 
   return (
     <section className="bg-white">

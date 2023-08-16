@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
 import Gradient from "../components/Gradient";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import logo from "../assets/favicon.ico";
