@@ -20,9 +20,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:3000/graphql',
-  // uri: 'https://secure-crag-53984.herokuapp.com/graphql',
-  uri: 'https://www.lamur.us/graphql',
+  uri: 'http://localhost:3000/graphql',
+  // uri: 'https://www.lamur.us/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -40,20 +39,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const cache = new InMemoryCache({
-  typePolicies: {
-    User: {
-      fields: {
-        posts: {
-          merge(existing = [], incoming) {
-          
-            return [...existing, ...incoming];
-          },
-        },
-      },
-    },
-  },
-});
 
 import { Route, Routes, useNavigate} from 'react-router-dom'
 function App() {

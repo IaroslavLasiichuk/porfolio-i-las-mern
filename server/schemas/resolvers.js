@@ -71,6 +71,7 @@ const resolvers = {
           description,
           content,
           author: context.user.username,
+          authorId: context.user._id,
         });
 
         await User.findOneAndUpdate(
@@ -184,7 +185,33 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-  },
+    removeUser: async (parent, { userId }, context) => {
+      console.log("Removing user with ID:", userId);
+      
+      // Check if the current user is an admin
+      if (context.user.isAdmin !== true) {
+        throw new Error("Only admin users can remove users");
+      }
+      
+      try {
+        // Find the user by ID in your database
+        const user = await User.findByIdAndRemove(userId);
+    
+        if (!user) {
+          throw new Error("User not found");
+        }
+    
+        // Remove all posts associated with the user
+        const deleteResult = await Post.deleteMany({ authorId: userId });
+        console.log("Deleted posts:", deleteResult);
+    
+        return { _id: userId }; // Return the removed user's ID
+      } catch (error) {
+        console.error("Error removing user:", error);
+        throw new Error("Error removing user: " + error.message);
+      }
+    },
+    },
 };
 
 module.exports = resolvers;

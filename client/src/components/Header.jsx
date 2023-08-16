@@ -11,20 +11,17 @@ function Header() {
         <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
         <div className="text-center">
           <div>
-          
-              <section>
-                <h1
-                  className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl"
-                >
+            <section>
+              <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
                 Hi, My name is Iaroslav Lasiichuk I'm Full Stack Web Developer
-                </h1>
-                <p
-                  className="m-6 text-lg leading-8 text-gray-600"
-                >
-                 Hi, everyone! I'm a young aspiring Full Stack Web developer with a passion for technology and a strong desire to make a difference in the world. I'm constantly seeking new challenges and opportunities to learn and grow as a developer
-                </p>
-              </section>
-       
+              </h1>
+              <p className="m-6 text-lg leading-8 text-gray-600">
+                Hi, everyone! I'm a young aspiring Full Stack Web developer with
+                a passion for technology and a strong desire to make a
+                difference in the world. I'm constantly seeking new challenges
+                and opportunities to learn and grow as a developer
+              </p>
+            </section>
           </div>
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
             Download resume{" "}

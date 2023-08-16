@@ -53,6 +53,7 @@ export const ADD_USER = gql`
       description
       content
       author
+      authorId
       createdAt
       comments {
         _id
@@ -94,6 +95,16 @@ export const REMOVE_POST = gql`
       createdAt
     }
   }
+}
+`;
+export const REMOVE_USER = gql`
+ mutation removeUser($userId: ID!) {
+    removeUser(userId: $userId) {
+      _id
+      username
+      email
+      password
+    }
 }
 `;
 export const UPDATE_THOUGHT = gql`

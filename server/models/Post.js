@@ -22,6 +22,10 @@ const postSchema = new Schema({
     type: String,
     trim: true,
   },
+  authorId:  {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
   role: {
     type: String,
     trim: true,
