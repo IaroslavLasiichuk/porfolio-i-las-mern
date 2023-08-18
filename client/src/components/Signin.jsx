@@ -107,7 +107,7 @@ function Signin() {
                 </div>
               </form>
               <p className="mt-10 text-center text-sm text-gray-500">
-                Plese sign up to create new account{" "}
+                Please sign up to create new account{" "}
                 <Link
                   to="/registration"
                   className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
