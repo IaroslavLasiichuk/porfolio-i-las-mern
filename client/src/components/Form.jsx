@@ -28,7 +28,6 @@ function Form() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 mx-8 ">
               <div>
                 <label
-                  htmlFor="first-name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   First name
@@ -48,7 +47,6 @@ function Form() {
               </div>
               <div>
                 <label
-                  htmlFor="last-name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Last name
@@ -69,7 +67,6 @@ function Form() {
 
               <div className="sm:col-span-2">
                 <label
-                  htmlFor="email"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Email
@@ -89,7 +86,6 @@ function Form() {
               </div>
               <div className="sm:col-span-2">
                 <label
-                  htmlFor="company"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Company
@@ -109,7 +105,6 @@ function Form() {
               </div>
               <div className="sm:col-span-2">
                 <label
-                  htmlFor="message"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Message
