@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import SEO from "./SEO";
 
 function NotFound() {
   return (
     <>
+       <SEO
+        title='Iaroslav Lasiichuk Portfolio || Website'
+        description='Hi, everyone! I am a young aspiring Full Stack Web developer with a passion for technology and a strong desire to make a difference in the world'
+        canonical='https://www.lamur.us'
+      />
       <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold text-indigo-600">404</p>
