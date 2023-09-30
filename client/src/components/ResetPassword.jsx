@@ -1,39 +1,12 @@
-import React, { useState } from "react";
 import Gradient from "../components/Gradient";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { LOGIN } from "../utils/mutations";
-import Auth from "../utils/auth";
 import logo from "../assets/favicon.ico";
 
-function Signin() {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN);
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-  return (
-    <>
-      <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+const ResetPassword = () => {
+    return (
+        <>
+             <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
         {" "}
         <Gradient />
         <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
@@ -107,14 +80,6 @@ function Signin() {
                 </div>
               </form>
               <p className="mt-10 text-center text-sm text-gray-500">
-                <Link
-                  to="/forgotpassword"
-                  className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                >
-                  Forgot Password
-                </Link>
-              </p>
-              <p className="mt-10 text-center text-sm text-gray-500">
                 Please sign up to create new account{" "}
                 <Link
                   to="/registration"
@@ -122,15 +87,14 @@ function Signin() {
                 >
                   Sign Up
                 </Link>
-             
               </p>
             </div>
           </div>
         </div>
         <Footer />
-      </div>
-    </>
-  );
+      </div> 
+        </>
+    )
 }
 
-export default Signin;
+export default ResetPassword;
