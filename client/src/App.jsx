@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import AdminPanel from './pages/AdminPanel'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import ForgotPassword from './pages/ForgotPassword'
 import Registration from './pages/Registration'
 import NotFound from './pages/NotFound'
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>} />
         <Route path="login" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
+        <Route path="forgotpassword" element={<ForgotPassword/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
       </ApolloProvider>
