@@ -1,12 +1,12 @@
-import Navbar from './Navbar'
-import About from './About.jsx'
-import Footer from './Footer.jsx'
+import Navbar from "../components/Navbar";
+import RestPassword from "../components/ResetPassword";
+import Footer from "../components/Footer";
 
 const ForgotPassword= () => {
   return (
     <>
       <Navbar />
-      <About />
+      <RestPassword />
       <Footer />
     </>
   );
