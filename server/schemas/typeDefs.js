@@ -11,6 +11,15 @@ const typeDefs = gql`
     posts: [Post]!
   }
 
+  type PasswordResetRequest {
+    email: String!
+  }
+
+  type PasswordReset {
+    token: String!
+    newPassword: String!
+  }
+
   type Thought {
     _id: ID
     thoughtText: String
@@ -63,15 +72,13 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
     addPost(title: String!, description: String!, content: String!): Post
-    addComment(
-      postId: ID!
-      commentText: String!
-      commentAuthor: String!
-    ): Post
+    addComment(postId: ID!, commentText: String!, commentAuthor: String!): Post
     updateThought(thoughtId: ID!, thoughtText: String!): Thought!
     removeThought(thoughtId: ID!): Thought
     removePost(postId: ID!): Post
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    requestPasswordReset(input: PasswordResetRequest!): Boolean
+    resetPassword(input: PasswordReset!): Boolean
   }
 `;
 
