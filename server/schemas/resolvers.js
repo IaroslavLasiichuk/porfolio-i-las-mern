@@ -185,6 +185,21 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // requestPasswordReset: async (_, { input }) => {
+    //   const { email } = input;
+    //   // Generate and send a reset token via email to the user with the provided email
+    //   // Implement email sending logic here
+    //   // Return true if the email was successfully sent, false otherwise
+    //   return true;
+    // },
+    // resetPassword: async (_, { input }) => {
+    //   const { token, newPassword } = input;
+    //   // Verify the token (e.g., decode and check expiration)
+    //   // Find the user associated with the token
+    //   // Update the user's password with the new one (after hashing)
+    //   // Return true if the password reset was successful, false otherwise
+    //   return true;
+    // },
     removeUser: async (parent, { userId }, context) => {
       console.log("Removing user with ID:", userId);
       

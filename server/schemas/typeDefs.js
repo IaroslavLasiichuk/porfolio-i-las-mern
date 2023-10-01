@@ -11,14 +11,14 @@ const typeDefs = gql`
     posts: [Post]!
   }
 
-  type PasswordResetRequest {
-    email: String!
-  }
+  # type PasswordResetRequest {
+  #   email: String!
+  # }
 
-  type PasswordReset {
-    token: String!
-    newPassword: String!
-  }
+  # type PasswordReset {
+  #   token: String!
+  #   newPassword: String!
+  # }
 
   type Thought {
     _id: ID
@@ -77,8 +77,8 @@ const typeDefs = gql`
     removeThought(thoughtId: ID!): Thought
     removePost(postId: ID!): Post
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    requestPasswordReset(input: PasswordResetRequest!): Boolean
-    resetPassword(input: PasswordReset!): Boolean
+    # requestPasswordReset(input: PasswordResetRequest!): Boolean
+    # resetPassword(input: PasswordReset!): Boolean
   }
 `;
 

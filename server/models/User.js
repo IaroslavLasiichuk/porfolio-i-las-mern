@@ -23,9 +23,9 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  resetLink: {
-    data: String, default: ''
-  }
+  // resetLink: {
+  //   data: String, default: ''
+  // }
   thoughts: [
     {
       type: Schema.Types.ObjectId,
