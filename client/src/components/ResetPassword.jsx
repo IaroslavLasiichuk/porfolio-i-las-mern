@@ -66,6 +66,10 @@ const ResetPassword = () => {
                 >
                   Sign Up
                 </Link>
+               {" "} or{" "}
+                <Link
+                to="/login"
+                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Return to Login</Link>
               </p>
             </div>
           </div>
