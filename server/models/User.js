@@ -24,8 +24,9 @@ const userSchema = new Schema({
     default: false,
   },
   // resetLink: {
-  //   data: String, default: ''
-  // }
+  //   type: String,
+  //   default: '',
+  // },
   thoughts: [
     {
       type: Schema.Types.ObjectId,

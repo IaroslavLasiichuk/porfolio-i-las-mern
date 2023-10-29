@@ -1,9 +1,28 @@
 import Gradient from "../components/Gradient";
-
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/favicon.ico";
 
 const ResetPassword = () => {
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        // Make a GraphQL request to send a password reset email
+        const response = await sendPasswordResetEmail({ variables: { input: { email } } });
+    
+        if (response.data.sendPasswordResetEmail.success) {
+          setMessage('Password reset email sent successfully.');
+        } else {
+          setMessage('Password reset email sending failed.');
+        }
+      };
     return (
         <>
              <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
@@ -18,7 +37,7 @@ const ResetPassword = () => {
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
               <form
-                // onSubmit={handleFormSubmit}
+                onSubmit={handleSubmit}
                 className="space-y-6"
                 action="#"
                 method="POST"
@@ -32,7 +51,8 @@ const ResetPassword = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                    //   onChange={handleChange}
+                      value={email}
+                      onChange={handleEmailChange}
                       id="email"
                       name="email"
                       type="email"
