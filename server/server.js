@@ -63,7 +63,7 @@ app.post('/send', async (req, res) => {
         service: 'gmail',
         auth: {
           user: process.env.EMAIL,
-          pass: process.env.WORD
+          pass: process.env.PASSWORD
         }
       });
   
