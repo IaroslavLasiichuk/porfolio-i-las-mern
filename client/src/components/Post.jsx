@@ -71,7 +71,7 @@ function Post() {
                 <>
                   <Link
                     to={`/posts/${post._id}`}
-                    className="relative z-10 rounded-full bg-gray-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
+                    className="relative z-10 rounded-full bg-purple-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
                   >
                     Read more and comment
                     <svg
