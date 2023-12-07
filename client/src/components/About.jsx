@@ -45,11 +45,11 @@ const About = () => {
               Skills
             </h3>
 
-            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+            <p class="mt-5 text-sm leading-6 text-gray-600">
               {" "}
               HTML/CSS/Git, JavaScript, DOM, Bootstrap, Tailwind, Chakra UI,
               APIs, JQuery, JSON, Node, ES6, OOP, MVC paradigm, MySQL, NoSQL,
-              Mongo DB, PWA, MERN Stack, React, Express, Agile development.
+              Mongo DB, PWA, MERN Stack, React, Express, WorldPress, Agile development.
             </p>
             <div className="rounded-full mt-6 px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Recent project{" "}
