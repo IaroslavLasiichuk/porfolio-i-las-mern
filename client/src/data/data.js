@@ -2,7 +2,7 @@ const navigation = [
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
-  // { name: 'About Me', href: '/about' },
+  { name: 'About Me', href: '/about' },
 ]
 
 const bio = [
@@ -133,6 +133,15 @@ const projects = [
   link:'https://salty-eyrie-98942.herokuapp.com/',
   imageSrc: 'https://miro.medium.com/v2/resize:fit:1400/0*GKIyAWHbKbANm7d9.png',
   imageAlt: "React",
+},
+{
+  id: 8,
+  name: 'Dun4Dreams',
+  description:'Dunk4Dreams, a non-profit organization committed to empowering underprivileged and through sports education and basketball skill development, is set to create a lasting positive impact in the Las Vegas community. ',
+  git:'https://github.com/IaroslavLasiichuk/blog_thinker',
+  link:'https://www.dunk4drems.org',
+  imageSrc: 'https://dunk4dreams.org/wp-content/uploads/2023/11/logo_11_29.png',
+  imageAlt: "Logo Dunk4Dreams",
 },
 ]
 export default { navigation, bio, posts, projects };
