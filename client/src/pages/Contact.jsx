@@ -8,7 +8,7 @@ const Contact = () => {
     <>
      <SEO
         title='Iaroslav Lasiichuk Portfolio || Website'
-        description='Hi, everyone! I am a young aspiring Full Stack Web developer with a passion for technology and a strong desire to make a difference in the world'
+        description='Have a Question? Contact Me. Would you like to contact me please fill out the info below and I will be in touch. '
       />
       <Navbar />
       <Form />
