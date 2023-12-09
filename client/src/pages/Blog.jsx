@@ -8,7 +8,7 @@ const Blog = () => {
     <>
       <SEO
         title="Iaroslav Lasiichuk Portfolio || Website"
-        description="Hi, everyone! I am a young aspiring Full Stack Web developer with a passion for technology and a strong desire to make a difference in the world"
+        description="Welcome to the blog! Learning programming can open up a world of opportunities. Here are some excellent resources to help you get started"
       />
       <Navbar />
       <Post />
