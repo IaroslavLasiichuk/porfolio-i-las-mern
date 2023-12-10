@@ -1,7 +1,7 @@
 import Gradient from "../components/Gradient";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
-import resume from "../assets/Iaroslav_Lasiichuk_ResumeLA.pdf";
+import resume from "../assets/iaroslav_lasiichuk_resume.pdf";
 
 function Header() {
   return (
