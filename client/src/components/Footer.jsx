@@ -7,7 +7,7 @@ function Footer() {
           <a
             href="https://www.instagram.com/slavalasiychuk/?igshid=rvivm09cjvhg&hl=en"
             target="blank"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-gray-600 hover:text-gray-500"
           >
             <span className="sr-only">Instagram</span>
             <svg
@@ -26,7 +26,7 @@ function Footer() {
           <a
             href="https://www.linkedin.com/in/iaroslav-lasiichuk-2974571a5/"
             target="blank"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-gray-600 hover:text-gray-500"
           >
             <span className="sr-only">Linkedin</span>
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ function Footer() {
           <a
             href="https://github.com/IaroslavLasiichuk"
             target="blank"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-gray-600 hover:text-gray-500"
           >
             <span className="sr-only">GitHub</span>
             <svg
@@ -53,7 +53,7 @@ function Footer() {
             </svg>
           </a>
         </div>
-        <p className="mt-5 text-base leading-6 text-center text-gray-400">
+        <p className="mt-5 text-base leading-6 text-center text-gray-700">
           © 2023 Iaroslav Lasiichuk, Inc. All rights reserved.
         </p>
       </div>
