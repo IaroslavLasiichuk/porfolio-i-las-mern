@@ -9,6 +9,7 @@ const { generate_sitemap } = require('./sitemap_generator');
 
 require("dotenv").config();
 app.use(cors());
+app.use(express.json());
 const { Form } = require('./models');
 
 // Import the ApolloServer class

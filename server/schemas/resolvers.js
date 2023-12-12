@@ -53,15 +53,16 @@ const resolvers = {
       }
 
       const token = signToken(user);
+      console.log(token);
       const context = {
         user: {
           _id: user._id,
           email: user.email,
           username: user.username,
         },
+        
       };
-
-      return { token, user };
+      return { token, user, context };
     },
     addPost: async (parent, { title, description, content, author }, context) => {
       console.log(context.user);
