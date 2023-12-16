@@ -53,6 +53,7 @@ export const ADD_USER = gql`
       description
       content
       author
+      img
       authorId
       createdAt
       comments {

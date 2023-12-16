@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { ADD_COMMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { QUERY_ME } from "../utils/queries";
@@ -67,8 +68,9 @@ const Comment = ({ postId }) => {
           </svg>
           <div>
             <span className="font-medium">Please Login!</span> You need to be
-            logged in to comment a post
+            logged in to comment a post{' '}
           </div>
+          
         </div>
       </div>
     );

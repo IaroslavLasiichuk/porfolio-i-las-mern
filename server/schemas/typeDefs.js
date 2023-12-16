@@ -38,6 +38,7 @@ const typeDefs = gql`
     author: String
     authorId: String
     role: String
+    img: String
     createdAt: String
     updatedAt: String
     comments: [Comment]!
