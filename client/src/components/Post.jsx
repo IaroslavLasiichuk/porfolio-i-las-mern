@@ -22,7 +22,7 @@ function Post() {
 
   // Extract data from the queries
   const posts = data?.posts;
-  console.log(posts);
+  
 
   return (
     <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
@@ -45,7 +45,7 @@ function Post() {
         {posts.map((post) => (
           <>
             <div className="basis-1/4  flex items-center justify-center m-8">
-              <div className=" bg-white h-80 w-1/2  border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
+              <div className=" bg-white  lg:w-1/2 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
                 <article
                   key={post._id}
                   className=" items-start justify-between "

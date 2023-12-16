@@ -26,7 +26,7 @@ const SinglePost = () => {
   }
 
   const post = data?.post || {};
-  console.log(post.img);
+
 
   return (
     <>
