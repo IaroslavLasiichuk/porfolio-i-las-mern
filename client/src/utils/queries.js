@@ -109,6 +109,7 @@ export const QUERY_SINGLE_POST = gql`
       category
       author
       role
+    
       createdAt
       updatedAt
       comments {
@@ -136,6 +137,7 @@ export const QUERY_ME = gql`
       category
       author
       role
+ 
       createdAt
       updatedAt
       comments {

@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_ME } from "../utils/queries";
 import { QUERY_SINGLE_POST } from "../utils/queries";
+import ImgWpError from "../assets/world_press_error.png";
 
 const SinglePost = () => {
   const { postId } = useParams();
@@ -25,34 +26,43 @@ const SinglePost = () => {
   }
 
   const post = data?.post || {};
+  console.log(post.img);
 
   return (
     <>
       <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
         <Gradient />
-        <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
+        <div className="mx-auto  px-0">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               {post.title}
             </h2>
+            <div className="mx-auto border-t border-gray-200 pt-10 sm:mt-8 sm:pt-8"></div>
           </div>
-          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-1">
-            <div className="group relative">
-              <article className="flex max-w-xl flex-col items-start justify-between mx-10">
+        </div>
+        <div className="flex items-center justify-center m-8">
+          <div className="bg-white border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6">
+          <article className="flex  flex-col items-start justify-between ">
                 <div className="group relative">
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <p className="mt-2 text-lg leading-8 text-gray-600">
+                  <h3 className="m-3 text-3xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                   
                       <br />
                       {post.description}
-                    </p>
+                  
                   </h3>
+                 
+                  {/* <img
+                    src="https://drive.google.com/file/d/1Ksoc6F4_O6FzVHVBKkoZsSK-BjDUs_wO/view?usp=drive_link"
+                    className="h-13 "
+                    alt="WorldPress Error"
+                  /> */}
                   <>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
+                    <p className="mt-5 text-lg indent-8 leading-8 text-gray-600">
                       {post.content}
                     </p>
 
                     {!post.comments.length ? (
-                      <div className="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-md text-yellow-700 bg-yellow-100 border border-yellow-300 ">
+                      <div className="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-md text-yellow-700">
                         <div slot="avatar">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -114,10 +124,8 @@ const SinglePost = () => {
                   </>
                 </div>
               </article>
-            </div>
-          </div>
         </div>
-        <div className="bg-white shadow-sm py-0"></div>
+        </div>
       </div>
     </>
   );

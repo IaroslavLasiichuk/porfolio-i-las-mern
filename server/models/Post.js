@@ -30,6 +30,9 @@ const postSchema = new Schema({
     type: String,
     trim: true,
   },
+  img: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
