@@ -56,7 +56,7 @@ function App() {
         <Route path="posts/:postId" element={<Post />} />
         <Route path="contact" element={<Contact/>} />
         <Route path="admin" element={<AdminPanel/>} />
-        <Route path="dashboard" element={<Dashboard/>} />
+        <Route path="troubleshooting-hub" element={<Dashboard/>} />
         <Route path="login" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
         <Route path="forgotpassword" element={<ForgotPassword/>} />

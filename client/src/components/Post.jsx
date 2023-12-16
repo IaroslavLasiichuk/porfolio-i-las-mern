@@ -43,11 +43,11 @@ function Post() {
 
       <div className="flex flex-col">
         {posts.map((post) => (
-          <>
-            <div className="basis-1/4  flex items-center justify-center m-8">
-              <div className=" bg-white  lg:w-1/2 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
+          <React.Fragment key={post._id}>
+            <div className="basis-1/4 flex items-center justify-center m-8">
+              <div className=" bg-white lg:w-1/2 md:w-1/2 sm:w-1/2 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
                 <article
-                  key={post._id}
+                
                   className=" items-start justify-between "
                 >
                   <div className=" gap-x-4 text-xs ">
@@ -72,7 +72,7 @@ function Post() {
                     <>
                       <Link
                         to={`/posts/${post._id}`}
-                        className="relative z-10 rounded-full bg-purple-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
+                        className="relative w-64 z-10 rounded-full bg-purple-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
                       >
                         Read more and comment
                         <svg
@@ -106,7 +106,7 @@ function Post() {
               </div>
             </div>
             <div className="mx-16 m-4  border-t border-gray-200 "></div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

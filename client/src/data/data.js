@@ -1,6 +1,7 @@
 const navigation = [
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Troubleshooting Hub', href: '/troubleshooting-hub' },
   { name: 'Contact', href: '/contact' },
   { name: 'About Me', href: '/about' },
 ]
@@ -142,6 +143,15 @@ const projects = [
   link:'https://www.dunk4dreams.org',
   imageSrc: 'https://dunk4dreams.org/wp-content/uploads/2023/11/logo_11_29.png',
   imageAlt: "Logo Dunk4Dreams",
+},
+{
+  id: 9,
+  name: 'DunkZone',
+  description:'Dunk4Dreams, a non-profit organization committed to empowering underprivileged and through sports education and basketball skill development, is set to create a lasting positive impact in the Las Vegas community. ',
+  git:'https://github.com/IaroslavLasiichuk/',
+  link:'https://www.dunk-zone.com',
+  imageSrc: 'https://dunk-zone.com/wp-content/uploads/2023/11/dunk_zone.png',
+  imageAlt: "Logo DunkZone",
 },
 ]
 export default { navigation, bio, posts, projects };

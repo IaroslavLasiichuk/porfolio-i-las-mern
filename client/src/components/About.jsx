@@ -18,12 +18,12 @@ const About = () => {
       </div>
       <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-1">
         {/* Card */}
-        <div class="flex items-center justify-center m-8">
-          <card class="w-1/1 bg-white border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6">
-            <div class="flex justify-center">
+        <div className="flex items-center justify-center m-8">
+          <div className="w-1/1 bg-white border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6">
+            <div className="flex justify-center">
               <img
                 src={Avatar}
-                class="rounded-full w-52 h-62 object-center border-4 border-white -mt-6 shadow-lg align-center"
+                className="rounded-full w-52 h-62 object-center border-4 border-white -mt-6 shadow-lg align-center"
               />
             </div>
 
@@ -31,7 +31,7 @@ const About = () => {
               Professional Summury
             </h3>
 
-            <p class="mt-5 text-sm leading-6 text-gray-600">
+            <p className="mt-5 text-sm leading-6 text-gray-600">
               {" "}
               Passionate and solutions-driven full stack web developer with a
               web development certificate from University of Denver. Experience
@@ -64,7 +64,7 @@ const About = () => {
                 Click here <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
-          </card>
+          </div>
         </div>
       </div>
     </div>
