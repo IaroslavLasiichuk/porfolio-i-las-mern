@@ -60,14 +60,14 @@ function Navbar() {
                 Admin Panel
               </Link>
             ) : null}
-            {Auth.loggedIn() ? (
+            {/* {Auth.loggedIn() ? (
               <Link
                 className="text-sm font-semibold leading-6 text-gray-900"
                 to="/dashboard"
               >
                 Dashboard
               </Link>
-            ) : null}
+            ) : null} */}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             {Auth.loggedIn() ? (
