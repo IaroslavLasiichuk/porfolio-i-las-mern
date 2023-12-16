@@ -45,7 +45,7 @@ const About = () => {
               Skills
             </h3>
 
-            <p class="mt-5 text-sm leading-6 text-gray-600">
+            <p className="mt-5 text-sm leading-6 text-gray-600">
               {" "}
               HTML/CSS/Git, JavaScript, DOM, Bootstrap, Tailwind, Chakra UI,
               APIs, JQuery, JSON, Node, ES6, OOP, MVC paradigm, MySQL, NoSQL,
