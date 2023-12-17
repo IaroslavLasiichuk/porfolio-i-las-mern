@@ -23,10 +23,14 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  // resetLink: {
-  //   type: String,
-  //   default: '',
-  // },
+  passwordResetToken: {
+    type: String,
+    default: null
+  },
+  passwordResetTokenExpires: {
+    type: String,
+    default: null
+  },
   thoughts: [
     {
       type: Schema.Types.ObjectId,

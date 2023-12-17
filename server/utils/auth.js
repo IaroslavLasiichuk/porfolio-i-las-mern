@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const path = require('path');
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-const expiration = "2h";
+const shortExpiration = "1d";
+const longExpiration = "1d";
 
 module.exports = {
   authMiddleware: function ({ req }) {
@@ -27,8 +28,24 @@ module.exports = {
     }
     return req;
   },
-  signToken: function ({ username, email, _id, isAdmin }) {
-    const payload = { username, email, _id, isAdmin };
-    return jwt.sign({ data: payload }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: expiration });
+  generateSignToken: function ({ username, email, _id }) {
+    const payload = { username, email, _id };
+    return jwt.sign({ data: payload }, process.env.ACCESS_TOKEN_SECRET, {
+      expiresIn: longExpiration,
+    });
+  },
+
+  generateRefreshToken: function ({ username, email, _id }) {
+    const payload = { username, email, _id };
+    return jwt.sign({ data: payload }, process.env.REFRESH_TOKEN_SECRET, {
+      expiresIn: longExpiration,
+    });
+  },
+
+  generateResetToken: function ({ email }) {
+    const payload = { email };
+    return jwt.sign({ data: payload }, process.env.REFRESH_TOKEN_SECRET, {
+      expiresIn: shortExpiration,
+    });
   },
 };

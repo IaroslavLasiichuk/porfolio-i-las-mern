@@ -1,6 +1,13 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Thought, Post } = require("../models");
 const { signToken, isAdmin } = require("../utils/auth");
+require("dotenv").config();
+const {
+  generateSignToken,
+  generateRefreshToken,
+  generateResetToken,
+} = require("../utils/auth");
+const sendEmail = require('../utils/email');
 
 const resolvers = {
   Query: {
@@ -36,7 +43,7 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
-      const token = signToken(user);
+      const token =  generateSignToken(user);
       return { token, user };
     },
     login: async (parent, { email, password }) => {
@@ -52,7 +59,7 @@ const resolvers = {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const token = signToken(user);
+      const token =  generateSignToken(user);
       console.log(token);
       const context = {
         user: {
@@ -186,21 +193,83 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // requestPasswordReset: async (_, { input }) => {
-    //   const { email } = input;
-    //   // Generate and send a reset token via email to the user with the provided email
-    //   // Implement email sending logic here
-    //   // Return true if the email was successfully sent, false otherwise
-    //   return true;
-    // },
-    // resetPassword: async (_, { input }) => {
-    //   const { token, newPassword } = input;
-    //   // Verify the token (e.g., decode and check expiration)
-    //   // Find the user associated with the token
-    //   // Update the user's password with the new one (after hashing)
-    //   // Return true if the password reset was successful, false otherwise
-    //   return true;
-    // },
+    forgotPassword: async (parent, { email }, req) => {
+      const user = await User.findOne({ email });
+      let apiUrl;
+      if (process.env.NODE_ENV === "production") {
+        apiUrl = "https://https://www.lamur.us"
+        app.use(express.static('../client/dist'));
+        app.get("*", (req, res) => {
+          res.sendFile(path.resolve(__dirname,  "../client/dist", "index.html"));
+        }
+        );
+      } else{
+        apiUrl ="http://localhost:3000"  
+      }
+      if (!user) {
+        throw new AuthenticationError("User not found");
+      }
+      // Generate a reset token
+      const resetToken = generateSignToken(user);
+        // Set the reset token and its expiration in the user document
+      user.passwordResetToken =resetToken;
+      // Set the expiration time (e.g., 15  min)
+      // user.passwordResetTokenExpires = moment().add(2, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
+      // Save the user document with the reset token and expiration
+      await user.save();
+      const resetUrl = `${apiUrl}/${resetToken}`
+      const message = `We have received a password reset request. Please use the below link to reset your password \n\n${resetUrl}`
+      const htmlContent = `
+      <div style="text-align: center; background-color: #f5f5f5; padding: 20px;">
+      <h1 style="color: #333; background-color: #7a7a7a; padding: 10px;"><img src="https://www.lamur.us/assets/favicon-da249e15.ico" alt="Logo" style="max-width: 50px; margin-top: 20px;"></h1>
+      <p style="font-size: 16px; color: #333; margin-top: 20px;">We have received a password reset request. Please use the below link to reset your password:</p>
+      <a href="${resetUrl}" style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
+    </div>
+    `;
+      await sendEmail({
+        from: 'Book your spot',
+        email: user.email,
+        subject: "Password change request received",
+        html: htmlContent,
+      })
+      return { passwordResetToken: resetToken };
+    },
+
+    // Define a resolver for the passwordReset mutation
+    resetPassword: async (parent, args) => {
+      // Find the user by email
+      const { passwordResetToken, password } = args;
+     
+      const user = await User.findOne({ passwordResetToken });
+  // console.log(user);
+
+      // Check if the user exists
+      if (!user) {
+        throw new AuthenticationError("User not found");
+      }
+      // Check if the reset token matches the one stored in the user's document
+      if (user.passwordResetToken !== passwordResetToken) {
+        throw new AuthenticationError("Invalid reset token");
+      }
+      // const expirationTime = moment(user.passwordResetTokenExpires);
+      // const currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+      // // Check if the reset token has expired (900000 milliseconds = 15 minutes)
+      // if (currentTime.isAfter(expirationTime)) {
+      //   throw new AuthenticationError("Reset token has expired");
+      // }
+
+      // Update the user's password and reset token fields
+      user.password.value = password.value;
+      user.password.updatedAt = currentTime;
+      user.passwordResetToken = null;
+      user.passwordResetTokenExpires = null;
+  
+      // Save the user document with the new password and cleared reset token
+      await user.save();
+  
+      // Return a success message or a new access token, if needed
+      return { passwordResetToken, message: "Password reset successful" };
+    },
     removeUser: async (parent, { userId }, context) => {
       console.log("Removing user with ID:", userId);
       

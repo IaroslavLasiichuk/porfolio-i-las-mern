@@ -56,6 +56,14 @@ const typeDefs = gql`
     user: User
   }
 
+  type Reset{
+    passwordResetToken: String
+  }
+
+  type Message{
+    message: String
+  }
+
   type Query {
     users: [User]
     getUsers: [User]
@@ -78,8 +86,8 @@ const typeDefs = gql`
     removeThought(thoughtId: ID!): Thought
     removePost(postId: ID!): Post
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    # requestPasswordReset(input: PasswordResetRequest!): Boolean
-    # resetPassword(input: PasswordReset!): Boolean
+    forgotPassword(email: String!): Reset
+    resetPassword(passwordResetToken: String, password: String!): Message
   }
 `;
 
