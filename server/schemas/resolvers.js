@@ -212,7 +212,7 @@ const resolvers = {
       user.passwordResetToken = resetToken;
       // Set the expiration time (e.g., 15  min)
        // Save the user document with the reset token and expiration
-      user.passwordResetTokenExpires = moment().add(1, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
+      user.passwordResetTokenExpires = moment().add(10, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
 
       await user.save();
       const resetUrl = `https://www.lamur.us/resetPassword/${resetToken}`
