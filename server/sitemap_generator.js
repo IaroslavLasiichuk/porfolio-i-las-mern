@@ -16,6 +16,7 @@ const generate_sitemap = async (req, res, next) => {
       { url: '', changefreq, priority: 1 },
       { url: 'portfolio', changefreq, priority: 0.9 },
       { url: 'blog', changefreq },
+      { url: 'troubleshooting-hub', changefreq },
       { url: 'contact', changefreq },
       { url: 'posts/:postId', changefreq },
       { url: 'registration', changefreq },
