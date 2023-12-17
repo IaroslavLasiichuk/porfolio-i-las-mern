@@ -45,15 +45,18 @@ const Forgot = () => {
                       className="block w-full p-3 border-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1  ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     />
                   </div>
+                  {successMessage && <p className="text-sm mt-2 text-center font-medium text-purple-500">
+                 {successMessage}
+                 </p>}
                 </div>
 
                 
                 <div>
-                  {/* {error ? (
+                  {error ? (
                     <p className="text-sm mb-2 text-center font-medium text-red-500">
-                      The provided credentials are incorrect
+                     {error.message}
                     </p>
-                  ) : null} */}
+                  ) : null}
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

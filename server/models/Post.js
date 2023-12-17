@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
+const moment = require('moment');
 
 const postSchema = new Schema({
   title: {
@@ -31,14 +32,12 @@ const postSchema = new Schema({
     trim: true,
   },
   createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    type: String,
+    default: moment().format('MMMM Do YYYY, h:mm:ss a'),
   },
   updatedAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    type: String,
+    default: moment().format('MMMM Do YYYY, h:mm:ss a'),
   },
   comments: [
     {
@@ -51,9 +50,8 @@ const postSchema = new Schema({
         trim: true,
       },
       createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        type: String,
+        default: moment().format('MMMM Do YYYY, h:mm:ss a'),
       },
     },
   ],

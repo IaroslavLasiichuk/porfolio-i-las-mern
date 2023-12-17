@@ -44,9 +44,9 @@ export const useResetPassword = () => {
     const { name, value } = event.target;
     // Update state based on the input name
     if (name === "password") {
-      setPassword(password);
+      setPassword(value);
     } else if (name === "confirm-password") {
-      setConfirmPassword(password);
+      setConfirmPassword(value);
     }
   };
 

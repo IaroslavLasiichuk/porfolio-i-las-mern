@@ -6,6 +6,7 @@ const {
   generateRefreshToken,
   generateResetToken,
 } = require("../utils/auth");
+const moment = require('moment');
 const sendEmail = require('../utils/email');
 
 const resolvers = {
@@ -45,6 +46,7 @@ const resolvers = {
       const token =  generateSignToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -59,7 +61,6 @@ const resolvers = {
       }
 
       const token =  generateSignToken(user);
-      console.log(token);
       const context = {
         user: {
           _id: user._id,
@@ -70,6 +71,7 @@ const resolvers = {
       };
       return { token, user, context };
     },
+
     addPost: async (parent, { title, description, content, author }, context) => {
       console.log(context.user);
       if (context.user) {
@@ -90,6 +92,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addComment: async (
       parent,
       { postId, commentText, commentAuthor },
@@ -123,6 +126,7 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
     updateThought: async (parent, { thoughtId, thoughtText }, context) => {
       // Check if the user is authenticated
       if (!context.user) {
@@ -160,6 +164,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     removePost: async (parent, { postId }, context) => {
       if (context.user) {
         const post = await Post.findOneAndDelete({
@@ -175,6 +180,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
@@ -192,29 +198,22 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     forgotPassword: async (parent, { email }, req) => {
       const user = await User.findOne({ email });
-      let apiUrl;
-      if (process.env.NODE_ENV === "production") {
-        apiUrl = "https://https://www.lamur.us"
-        app.use(express.static('../client/dist'));
-        app.get("*", (req, res) => {
-          res.sendFile(path.resolve(__dirname,  "../client/dist", "index.html"));
-        }
-        );
-      } else{
-        apiUrl ="http://localhost:3000"  
-      }
       if (!user) {
         throw new AuthenticationError("User not found");
       }
+
       // Generate a reset token
-      const resetToken = generateSignToken(user);
+      const resetToken = generateResetToken(user);
+
         // Set the reset token and its expiration in the user document
-      user.passwordResetToken =resetToken;
+      user.passwordResetToken = resetToken;
       // Set the expiration time (e.g., 15  min)
-      // user.passwordResetTokenExpires = moment().add(2, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
-      // Save the user document with the reset token and expiration
+       // Save the user document with the reset token and expiration
+      user.passwordResetTokenExpires = moment().add(1, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
+
       await user.save();
       const resetUrl = `https://www.lamur.us/resetPassword/${resetToken}`
       const message = `We have received a password reset request. Please use the below link to reset your password \n\n${resetUrl}`
@@ -238,28 +237,28 @@ const resolvers = {
     resetPassword: async (parent, args) => {
       // Find the user by email
       const { passwordResetToken, password } = args;
-     
       const user = await User.findOne({ passwordResetToken });
-  // console.log(user);
 
       // Check if the user exists
       if (!user) {
         throw new AuthenticationError("User not found");
       }
+
       // Check if the reset token matches the one stored in the user's document
       if (user.passwordResetToken !== passwordResetToken) {
         throw new AuthenticationError("Invalid reset token");
       }
-      // const expirationTime = moment(user.passwordResetTokenExpires);
-      // const currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-      // // Check if the reset token has expired (900000 milliseconds = 15 minutes)
-      // if (currentTime.isAfter(expirationTime)) {
-      //   throw new AuthenticationError("Reset token has expired");
-      // }
+
+      const expirationTime = moment(user.passwordResetTokenExpires, 'MMMM Do YYYY, h:mm:ss a');
+      const currentTime = moment();
+      // Check if the reset token has expired (900000 milliseconds = 15 minutes)
+      if (moment().isAfter(expirationTime)) {
+        throw new AuthenticationError("Reset token has expired");
+      }
 
       // Update the user's password and reset token fields
-      user.password.value = password.value;
-      user.password.updatedAt = currentTime;
+      user.password = password;
+      // user.password.updatedAt = currentTime;
       user.passwordResetToken = null;
       user.passwordResetTokenExpires = null;
   
