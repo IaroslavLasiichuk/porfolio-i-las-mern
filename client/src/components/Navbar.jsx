@@ -60,14 +60,6 @@ function Navbar() {
                 Admin Panel
               </Link>
             ) : null}
-            {/* {Auth.loggedIn() ? (
-              <Link
-                className="text-sm font-semibold leading-6 text-gray-900"
-                to="/dashboard"
-              >
-                Dashboard
-              </Link>
-            ) : null} */}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             {Auth.loggedIn() ? (
@@ -134,14 +126,7 @@ function Navbar() {
                       Admin Panel
                     </Link>
                   ) : null}
-                  {/* {Auth.loggedIn() ? (
-                    <Link
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      to="/dashboard"
-                    >
-                      Dashboard
-                    </Link>
-                  ) : null} */}
+                
                 </div>
                 <div className="py-6">
                   {Auth.loggedIn() ? (

@@ -9,6 +9,7 @@ import AdminPanel from './pages/AdminPanel'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 import Registration from './pages/Registration'
 import NotFound from './pages/NotFound'
 
@@ -20,10 +21,14 @@ import {
 } from '@apollo/client'
 
 import { setContext } from '@apollo/client/link/context';
-
+let apiUrl;
+if (import.meta.env.VITE_REACT_APP_NODE_ENV === "production") {
+  apiUrl = "https://www.lamur.us/graphql"
+} else{
+  apiUrl ="http://localhost:3000/graphql"  
+}
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:3000/graphql',
-  uri: 'https://www.lamur.us/graphql',
+  uri: apiUrl
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -60,6 +65,7 @@ function App() {
         <Route path="login" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
         <Route path="forgotpassword" element={<ForgotPassword/>} />
+        <Route path="resetPassword/:passwordResetToken" element={<ResetPassword/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
       </ApolloProvider>

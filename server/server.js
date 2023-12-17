@@ -6,8 +6,11 @@ const nodemailer = require('nodemailer');
 const { authMiddleware } = require('./utils/auth');
 const robots = require("express-robots-txt");
 const { generate_sitemap } = require('./sitemap_generator');
-
 require("dotenv").config();
+
+// Use the environment variable or default to localhost if not set
+let apiUrl;
+
 app.use(cors());
 app.use(express.json());
 const { Form } = require('./models');
@@ -28,6 +31,20 @@ const server = new ApolloServer({
   context: authMiddleware,
   persistedQueries: false
 });
+
+//  This code configuration ensures that static files are served from the specified directory,
+// and for any route that doesn't match a static file, the "index.html"
+// file is sent to the client. 
+if (process.env.NODE_ENV === "production") {
+  apiUrl = "https://https://www.lamur.us"
+  app.use(express.static('../client/dist'));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname,  "../client/dist", "index.html"));
+  }
+  );
+} else{
+  apiUrl ="http://localhost:3000"  
+}
 
 // Static route to serve up the content of our built webpack bundle which is located in the dist folder
 app.use(express.static('../client/dist'));
