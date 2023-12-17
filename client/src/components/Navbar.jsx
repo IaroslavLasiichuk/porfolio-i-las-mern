@@ -60,6 +60,7 @@ function Navbar() {
                 Admin Panel
               </Link>
             ) : null}
+
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             {Auth.loggedIn() ? (

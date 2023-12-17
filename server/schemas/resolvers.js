@@ -61,6 +61,7 @@ const resolvers = {
       }
 
       const token =  generateSignToken(user);
+      console.log(token);
       const context = {
         user: {
           _id: user._id,
