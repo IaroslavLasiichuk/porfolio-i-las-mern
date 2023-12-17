@@ -3,6 +3,7 @@ import Gradient from "../components/Gradient";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { useQuery } from "@apollo/client";
+import Auth from '../utils/Auth';
 import { QUERY_GET_ALL_USERS } from "../utils/queries";
 import { useRemoveUser } from "../hooks/useRemoveUser";
 
@@ -24,7 +25,7 @@ const Admin = ({ userId }) => {
     <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
-        <div className="mx-auto max-w-2xl text-center">
+        {Auth.loggedIn() && Auth.isAdmin() ?  (  <> <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             List of Users
           </h2>
@@ -98,7 +99,10 @@ const Admin = ({ userId }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> </>) :  <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">
+            Only Admin has access to this route
+          </h2> }
+       
       </div>
     </div>
   );
