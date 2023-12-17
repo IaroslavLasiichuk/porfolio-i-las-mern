@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const path = require('path');
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-const shortExpiration = "1d";
+const shortExpiration = "15m";
 const longExpiration = "1d";
 
 module.exports = {
@@ -19,10 +19,9 @@ module.exports = {
 
     try {
       const { data } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, {
-        maxAge: expiration,
+        maxAge: longExpiration,
       });
       req.user = data;
-      console.log("User:" + req.user);
     } catch {
       console.error("Invalid token:", error);
     }
@@ -45,7 +44,7 @@ module.exports = {
   generateResetToken: function ({ email }) {
     const payload = { email };
     return jwt.sign({ data: payload }, process.env.REFRESH_TOKEN_SECRET, {
-      expiresIn: shortExpiration,
+      expiresIn: shortExpiration ,
     });
   },
 };
