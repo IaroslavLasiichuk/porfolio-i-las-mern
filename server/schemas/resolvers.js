@@ -1,7 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Thought, Post } = require("../models");
 const { signToken, isAdmin } = require("../utils/auth");
-require("dotenv").config();
 const {
   generateSignToken,
   generateRefreshToken,
@@ -217,7 +216,7 @@ const resolvers = {
       // user.passwordResetTokenExpires = moment().add(2, 'minutes').format('MMMM Do YYYY, h:mm:ss a'); 
       // Save the user document with the reset token and expiration
       await user.save();
-      const resetUrl = `${apiUrl}/${resetToken}`
+      const resetUrl = `https://www.lamur.us/resetPassword/${resetToken}`
       const message = `We have received a password reset request. Please use the below link to reset your password \n\n${resetUrl}`
       const htmlContent = `
       <div style="text-align: center; background-color: #f5f5f5; padding: 20px;">
