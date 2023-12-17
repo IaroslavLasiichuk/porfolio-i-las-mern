@@ -3,7 +3,7 @@ import Gradient from "../components/Gradient";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { useQuery } from "@apollo/client";
-import Auth from '../utils/Auth';
+import Auth from "../utils/auth";
 import { QUERY_GET_ALL_USERS } from "../utils/queries";
 import { useRemoveUser } from "../hooks/useRemoveUser";
 
