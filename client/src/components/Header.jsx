@@ -35,7 +35,7 @@ function Header() {
               <span className="absolute inset-0" aria-hidden="true" />
               Click here <span aria-hidden="true">&rarr;</span>
             </a>
-            <Gradient />
+         
           </div>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             {Auth.loggedIn() ? null : (
