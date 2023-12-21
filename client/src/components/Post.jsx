@@ -22,7 +22,6 @@ function Post() {
 
   // Extract data from the queries
   const posts = data?.posts;
-  
 
   return (
     <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
@@ -45,11 +44,8 @@ function Post() {
         {posts.map((post) => (
           <React.Fragment key={post._id}>
             <div className="basis-1/4 flex items-center justify-center m-8">
-              <div className=" bg-white lg:w-1/2 md:w-1/2 sm:w-1/2 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
-                <article
-                
-                  className=" items-start justify-between "
-                >
+              <div className="bg-white lg:w-1/2 md:w-1/2 sm:w-1/2 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center p-6 ">
+                <article className="flex-col">
                   <div className=" gap-x-4 text-xs ">
                     <time className="text-gray-500">{post.createdAt}</time>
                     <Link
@@ -62,7 +58,7 @@ function Post() {
                   <div className="group relative">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                       <p>
-                        <span className="absolute inset-0" />
+                        <span className="absolute inset-0 " />
                         {post.title}
                       </p>
                     </h3>
@@ -70,9 +66,14 @@ function Post() {
                       {post.description}
                     </p>
                     <>
-                      <Link
+                      
+                    </>
+                  </div>
+                  <div className="relative mt-8 flex flex items-center justify-center gap-x-4">
+                    <div className="text-sm leading-6">
+                    <Link
                         to={`/posts/${post._id}`}
-                        className="relative w-64 z-10 rounded-full bg-purple-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
+                        className="relative text-center z-10 rounded-full bg-purple-50 m-3 px-3 py-1.5 font-medium flex max-w-xl flex-row items-start mx-10 text-gray-600 hover:bg-gray-100"
                       >
                         Read more and comment
                         <svg
@@ -89,10 +90,6 @@ function Post() {
                           />
                         </svg>
                       </Link>
-                    </>
-                  </div>
-                  <div className="relative mt-8 flex items-center gap-x-4">
-                    <div className="text-sm leading-6">
                       <p className="font-semibold text-gray-900">
                         <a>
                           <span className="absolute inset-0" />

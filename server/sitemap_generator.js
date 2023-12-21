@@ -20,7 +20,6 @@ const generate_sitemap = async (req, res, next) => {
       { url: 'contact', changefreq },
       { url: 'posts/:postId', changefreq },
       { url: 'registration', changefreq },
-      { url: 'dashboard', changefreq },
       { url: 'login', changefreq },
     ];
 

@@ -4,15 +4,12 @@ import { jwtDecode } from 'jwt-decode';
 class AuthService {
   getProfile() {
     const token = this.getToken();
-    console.log(jwtDecode(token));
     return jwtDecode(token);
-   
   }
 
   loggedIn() {
     const token = this.getToken();
     // If there is a token and it's not expired, return `true`
-    console.log(token);
     return token && !this.isTokenExpired(token) ? true : false;
   }
 
@@ -20,8 +17,6 @@ class AuthService {
     // Decode the token to get its expiration time that was set by the server
     const decoded = jwtDecode(token);
     // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
-    console.log(decoded.exp );
-    console.log("Date:" + Date.now() / 1000 );
     if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem('id_token');
       return true;
@@ -47,7 +42,6 @@ class AuthService {
   isAdmin(){
   const admin = this.getProfile();
   const isAdmin = admin.data.isAdmin;
-  console.log("Admin:" + admin.data.email);
   return isAdmin;
   }
 }
