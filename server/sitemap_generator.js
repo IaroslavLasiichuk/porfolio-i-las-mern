@@ -6,7 +6,8 @@ const generate_sitemap = async (req, res, next) => {
 
   res.header('Content-Type', 'application/xml');
 
-  if (sitemap) return res.status(200).send(sitemap); // If we have a cached entry send it
+  if (sitemap) return res.status(200).send(sitemap); 
+  // If we have a cached entry send it
 
   let changefreq = 'weekly';
 
