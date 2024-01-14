@@ -54,8 +54,7 @@ const About = () => {
             <div className="rounded-full mt-6 px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Recent project{" "}
               <a
-                href="https://www.dunk4dreams.org"
-                download="Resume Iaroslav Lasiichuk"
+                href="https://rdc.lamur.us"
                 target="_blank"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600"

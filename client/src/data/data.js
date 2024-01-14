@@ -153,5 +153,14 @@ const projects = [
   imageSrc: 'https://dunk-zone.com/wp-content/uploads/2023/11/dunk_zone.png',
   imageAlt: "Logo DunkZone",
 },
+{
+  id: 9,
+  name: 'Book Your Spot',
+  description:'Enjoy the convenience of booking a parking spot at the venue ahead of time, ensuring you have a space when you arrive for games, concerts, and more.',
+  git:'https://github.com/IaroslavLasiichuk/make-appointment',
+  link:'https://rdc.lamur.us',
+  imageSrc: 'https://rdc.lamur.us/assets/il_logo-da249e15.png',
+  imageAlt: "Logo Lamur",
+},
 ]
 export default { navigation, bio, posts, projects };
