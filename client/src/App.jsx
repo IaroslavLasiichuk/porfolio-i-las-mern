@@ -21,10 +21,12 @@ import {
 } from '@apollo/client'
 
 import { setContext } from '@apollo/client/link/context';
+let apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "production" 
+  ? "https://www.lamur.us/graphql" 
+  : "http://localhost:3000/graphql"; 
 
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:3000/graphql',
-  uri: 'https://www.lamur.us/graphql',
+  uri: apiUrl,
 });
 
 const authLink = setContext((_, { headers }) => {
