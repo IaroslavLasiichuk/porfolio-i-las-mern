@@ -7,7 +7,7 @@ const Dash = () => {
   return (
     <div
       id="dash"
-      className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex "
+      className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex font-custom"
     >
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
@@ -31,7 +31,7 @@ const Dash = () => {
             <div className="mx-auto max-w-2xl text-center">
               <Link
                 to="/login"
-                className="mx-auto block w-32 mt-3 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="mx-auto block w-32 mt-3 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-custom"
               >
                 LOGIN
               </Link>

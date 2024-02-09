@@ -36,7 +36,7 @@ const server = new ApolloServer({
 // and for any route that doesn't match a static file, the "index.html"
 // file is sent to the client. 
 if (process.env.NODE_ENV === "production") {
-  apiUrl = "https://https://www.lamur.us"
+  apiUrl = "https://www.lamur.us"
   app.use(express.static('../client/dist'));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname,  "../client/dist", "index.html"));

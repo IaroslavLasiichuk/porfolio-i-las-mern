@@ -22,7 +22,7 @@ const Admin = ({ userId }) => {
   const { getUsers } = data;
 
   return (
-    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col font-custom">
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         {Auth.loggedIn() && Auth.isAdmin() ?  (  <> <div className="mx-auto max-w-2xl text-center">

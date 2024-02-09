@@ -7,7 +7,7 @@ function Project() {
   return (
     <div
     id="portfolio"
-      className="relative isolate bg-white  pt-24 sm:pt-24 flex flex-col"
+      className="relative isolate bg-white  pt-24 sm:pt-24 flex flex-col font-custom"
     >
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">

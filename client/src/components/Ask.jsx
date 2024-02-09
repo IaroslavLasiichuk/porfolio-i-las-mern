@@ -23,7 +23,7 @@ const Ask = () => {
   const { me } = data;
 
   return (
-    <div className="">
+    <div className="font-custom">
       <Gradient />
       <div className="mx-auto max-w-7xl px-0 lg:px- flex-1">
         <div className="mx-auto max-w-2xl text-center">

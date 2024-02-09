@@ -6,7 +6,7 @@ const AddPost = () => {
 
   return (
     <>
-      <div className="max-w-2xl mx-auto m-5">
+      <div className="max-w-2xl mx-auto m-5 font-custom">
         <form onSubmit={handleFormSubmit}>
           <div className="rounded-b-lg ">
             <input

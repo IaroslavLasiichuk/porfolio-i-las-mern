@@ -23,7 +23,7 @@ const PostsList = ({ postId }) => {
   const { me } = data;
   if (!me || !me.posts || me.posts.length === 0) {
     return (
-      <h2 className="text-3xl text-center py-3 tracking-tight text-grey-900 sm:text-3xl">
+      <h2 className="text-3xl text-center py-3 tracking-tight text-grey-900 sm:text-3xl font-custom ">
         No posts yet
       </h2>
     );
