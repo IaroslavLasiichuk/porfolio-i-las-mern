@@ -1,7 +1,7 @@
 function Footer() {
   
   return (
-    <section className="bg-white">
+    <section className="bg-white font-custom">
       <div className="max-w-screen-xl px-0 py-0 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8">
         <div className="flex justify-center mt-8 space-x-6">
           <a

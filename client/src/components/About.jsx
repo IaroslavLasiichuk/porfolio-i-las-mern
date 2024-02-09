@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col font-custom">
       <Gradient />
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

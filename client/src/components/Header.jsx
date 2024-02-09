@@ -5,7 +5,7 @@ import resume from "../assets/iaroslav_lasiichuk_resume.pdf";
 
 function Header() {
   return (
-    <div className="relative isolate min-h-screen px-6 pt-14 lg:px-8">
+    <div className="relative isolate min-h-screen px-6 pt-14 lg:px-8 font-custom">
       <Gradient />
       <div className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>

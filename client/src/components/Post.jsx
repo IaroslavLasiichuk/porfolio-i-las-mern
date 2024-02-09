@@ -24,7 +24,7 @@ function Post() {
   const posts = data?.posts;
 
   return (
-    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col">
+    <div className="relative isolate bg-white min-h-screen pt-24 sm:pt-24 flex flex-col font-custom">
       <Gradient />
       <div className="mx-auto  px-0 ">
         <div className="mx-auto max-w-2xl text-center">
@@ -66,7 +66,6 @@ function Post() {
                       {post.description}
                     </p>
                     <>
-                      
                     </>
                   </div>
                   <div className="relative mt-8 flex flex items-center justify-center gap-x-4">

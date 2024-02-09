@@ -47,17 +47,17 @@ function Navbar() {
               <Link
                 to={item.href}
                 key={item.name}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-custom leading-6 text-gray-900"
               >
                 {item.name}
               </Link>
             ))}
             {Auth.loggedIn() && Auth.isAdmin() ? (
               <Link
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm leading-6 text-gray-900"
                 to="/admin"
               >
-                Admin Panel
+                ADMIN PANEL
               </Link>
             ) : null}
 
@@ -67,18 +67,18 @@ function Navbar() {
               <>
                 <button
                   onClick={Auth.logout}
-                  className="text-sm font-semibold leading-6 text-gray-900"
+                  className="text-sm leading-6 text-gray-900"
                 >
-                  Log out <span aria-hidden="true">&larr;</span>
+                  LOG OUT <span aria-hidden="true">&larr;</span>
                 </button>
               </>
             ) : (
               <>
                 <Link
                   to="/login"
-                  className="text-sm font-semibold leading-6 text-gray-900"
+                  className="text-sm leading-6 text-gray-900"
                 >
-                  Log in <span aria-hidden="true">&rarr;</span>
+                 LOG IN <span aria-hidden="true">&rarr;</span>
                 </Link>
               </>
             )}
@@ -114,17 +114,17 @@ function Navbar() {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
                     </Link>
                   ))}
                   {Auth.loggedIn() && Auth.isAdmin() ? (
                     <Link
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50"
                       to="/admin"
                     >
-                      Admin Panel
+                      ADMIN PANEL
                     </Link>
                   ) : null}
                 
@@ -134,18 +134,18 @@ function Navbar() {
                     <>
                       <button
                         onClick={Auth.logout}
-                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900 hover:bg-gray-50"
                       >
-                        Log out <span aria-hidden="true">&rarr;</span>
+                       LOG OUT <span aria-hidden="true">&rarr;</span>
                       </button>
                     </>
                   ) : (
                     <>
                       <Link
                         to="/login"
-                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900 hover:bg-gray-50"
                       >
-                        Log in<span aria-hidden="true">&larr;</span>
+                        LOG IN<span aria-hidden="true">&larr;</span>
                       </Link>
                     </>
                   )}

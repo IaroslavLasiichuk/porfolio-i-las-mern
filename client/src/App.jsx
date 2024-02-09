@@ -11,7 +11,7 @@ import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Registration from './pages/Registration'
-import NotFound from './pages/NotFound'
+import NotFound from './pages/NotFound' 
 
 import {
   ApolloClient,
