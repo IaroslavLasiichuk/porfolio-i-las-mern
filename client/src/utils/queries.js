@@ -5,7 +5,7 @@ export const QUERY_USER = gql`
     user(username: $username) {
       _id
       username
-      email
+      # email
     }
   }
 `;
@@ -16,7 +16,7 @@ export const QUERY_GET_ALL_USERS = gql`
       _id
       username
       email
-      posts{
+      posts {
         title
         description
         content
@@ -25,20 +25,19 @@ export const QUERY_GET_ALL_USERS = gql`
         role
         createdAt
         updatedAt
-      
       }
       thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
         _id
-        commentText
-        commentAuthor
+        thoughtText
+        thoughtAuthor
         createdAt
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
-    }
     }
   }
 `;
@@ -109,7 +108,7 @@ export const QUERY_SINGLE_POST = gql`
       category
       author
       role
-    
+
       createdAt
       updatedAt
       comments {
@@ -130,23 +129,23 @@ export const QUERY_ME = gql`
       email
       isAdmin
       posts {
-      _id
-      title
-      description
-      content
-      category
-      author
-      role
- 
-      createdAt
-      updatedAt
-      comments {
         _id
-        commentText
-        commentAuthor
+        title
+        description
+        content
+        category
+        author
+        role
+
         createdAt
+        updatedAt
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
-    }
     }
   }
 `;
