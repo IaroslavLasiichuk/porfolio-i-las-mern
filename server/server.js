@@ -4,6 +4,7 @@ const path = require('path');
 const app = express();
 const nodemailer = require('nodemailer');
 const { authMiddleware } = require('./utils/auth');
+// const updateExistingUsers = require('./utils/updateUsers');
 const robots = require("express-robots-txt");
 const { generate_sitemap } = require('./sitemap_generator');
 require("dotenv").config();

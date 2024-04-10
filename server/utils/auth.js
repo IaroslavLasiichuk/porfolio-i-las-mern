@@ -22,7 +22,7 @@ module.exports = {
         maxAge: longExpiration,
       });
       req.user = data;
-    } catch {
+    } catch (error){
       console.error("Invalid token:", error);
     }
     return req;

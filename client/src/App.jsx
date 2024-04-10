@@ -25,6 +25,8 @@ let apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "production"
   ? "https://www.lamur.us/graphql" 
   : "http://localhost:3000/graphql"; 
 
+// let apiUrl = "http://localhost:3000/graphql";
+
 const httpLink = createHttpLink({
   uri: apiUrl,
 });

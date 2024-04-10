@@ -19,6 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+ log: {
+    type: String,
+    required: false,
+  },
   isAdmin: {
     type: Boolean,
     default: false,

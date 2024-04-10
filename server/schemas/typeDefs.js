@@ -86,7 +86,7 @@ const typeDefs = gql`
     removeThought(thoughtId: ID!): Thought
     removePost(postId: ID!): Post
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    forgotPassword(email: String!): Reset
+    forgotPassword(email: String!): Message
     resetPassword(passwordResetToken: String, password: String!): Message
   }
 `;

@@ -14,7 +14,7 @@ export const LOGIN = gql`
 export const FORGOT_PASSWORD = gql`
   mutation forgotPassword($email: String!) {
     forgotPassword(email: $email) {
-      passwordResetToken
+      message
     }
   }
 `;
