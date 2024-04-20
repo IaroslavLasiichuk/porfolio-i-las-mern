@@ -22,7 +22,7 @@ To run the application, follow these steps:
 
 
 
-![Screenshot](./assets/localhost_5173_.png)
+![Screenshot](./assets/cover_portfolio.png)
 ![Screenshot](./assets/ligthhouse_screenshot.png)
 
 ## Contributing
