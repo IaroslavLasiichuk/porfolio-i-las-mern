@@ -109,7 +109,7 @@ const projects = [
     description:
       "Thinker is a community-driven question and answer platform designed to connect people seeking knowledge with those who have expertise in various fields.",
     git: "https://github.com/IaroslavLasiichuk/blog_thinker",
-    link: "https://salty-eyrie-98942.herokuapp.com/",
+    link: "https://thinker.lamur.us/",
     imageSrc:
       "https://miro.medium.com/v2/resize:fit:1400/0*GKIyAWHbKbANm7d9.png",
     imageAlt: "React",
