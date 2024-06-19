@@ -166,7 +166,7 @@ const projects = [
     description:
       "The application allows users to search for movies based on title. The application also allows for the user to register to our app to save movies watched, comment, and read critic reviews.",
     git: "https://github.com/IaroslavLasiichuk/movie-blog",
-    link: "https://intense-island-90811.herokuapp.com/",
+    link: "https://movie-blog.lamur.us/",
     imageSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX8Y6QCkY7uUARJR288NRuRYyivuFpGYbt40-8mkooaAXPnThuPpKlD_KtiwHWd4B8CdM&usqp=CAU",
     imageAlt: "Javascript Logo",
