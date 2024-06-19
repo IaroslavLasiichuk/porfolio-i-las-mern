@@ -177,7 +177,7 @@ const projects = [
     description:
       "This is a CMS-style blog site for tech developers who want to publish articles, blog posts, and their thoughts and opinions. This site provides a user-friendly interface for managing posts, comments, and user accounts",
     git: "https://github.com/IaroslavLasiichuk/mvc-tech-blog",
-    link: "https://intense-river-83466.herokuapp.com/",
+    link: "https://tech-blog.lamur.us/",
     imageSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYBIzg1d5lBFFE3bJ2zkW7h0Gq8h7S343vEw&usqp=CAU",
     imageAlt: "Node js logo",
