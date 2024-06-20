@@ -154,7 +154,7 @@ const projects = [
     description:
       "This is a simple Note Taker application that allows small business owners to write and save notes to keep track of their tasks and organize their thoughts.",
     git: "https://github.com/IaroslavLasiichuk/note-taker",
-    link: "https://desolate-journey-55866.herokuapp.com/",
+    link: "https://note-taker.lamur.us/",
     imageSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROlpbROsuLWFnUQWjoTX-rtcoX3__48J66Zw&usqp=CAU",
     imageAlt: "Node js express logo",
