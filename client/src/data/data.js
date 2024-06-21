@@ -168,7 +168,7 @@ const projects = [
     git: "https://github.com/IaroslavLasiichuk/movie-blog",
     link: "https://movie-blog.lamur.us/",
     imageSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX8Y6QCkY7uUARJR288NRuRYyivuFpGYbt40-8mkooaAXPnThuPpKlD_KtiwHWd4B8CdM&usqp=CAU",
+      "https://img.freepik.com/free-vector/showtime-movie-time-film-strip-red-background_1017-33454.jpg?size=626&ext=jpg&ga=GA1.1.44546679.1716595200&semt=ais_user",
     imageAlt: "Javascript Logo",
   },
   {
