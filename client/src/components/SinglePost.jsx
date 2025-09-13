@@ -47,6 +47,7 @@ const SinglePost = () => {
                   <h3 className="m-3 text-3xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                    
                       <br />
+                      
                       {post.description}
                   
                   </h3>
@@ -57,9 +58,10 @@ const SinglePost = () => {
                     alt="WorldPress Error"
                   /> */}
                   <>
-                    <p className="mt-5 text-lg indent-8 leading-8 text-gray-600">
-                      {post.content}
-                    </p>
+                    <div
+  className="mt-5 text-lg indent-8 leading-8 text-gray-600"
+  dangerouslySetInnerHTML={{ __html: post.content }}
+/>
 
                     {!post.comments.length ? (
                       <div className="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-md text-yellow-700">
