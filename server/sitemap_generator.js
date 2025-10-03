@@ -14,21 +14,22 @@ const generate_sitemap = async (req, res, next) => {
   try {
 
     let links = [
-      { url: '', changefreq, priority: 1 },
-      { url: 'portfolio', changefreq, priority: 0.9 },
-      { url: 'blog', changefreq },
-      { url: 'troubleshooting-hub', changefreq },
-      { url: 'contact', changefreq },
-      { url: 'posts/:postId', changefreq },
-      { url: 'registration', changefreq },
-      { url: 'login', changefreq },
+      { url: '/', changefreq, priority: 1 },
+      { url: '/portfolio', changefreq, priority: 0.9 },
+      { url: '/blog', changefreq },
+      { url: '/troubleshooting-hub', changefreq },
+      { url: '/contact', changefreq },
+      { url: '/posts/68c5f0efd7cdb0479a2419e4', changefreq },
+      { url: '/posts/657e61285c06ccfa66288cec', changefreq },
+      { url: '/registration', changefreq },
+      { url: '/login', changefreq },
     ];
 
     // Additionally, you can do database query and add more dynamic URLs to the "links" array.
 
     const stream = new SitemapStream({ hostname: 'https://www.lamur.us', lastmodDateOnly: true })
     return streamToPromise(Readable.from(links).pipe(stream)).then((data) => {
-      sitemap = data; // Cache the generated sitemap
+      sitemap = data.toString();// Cache the generated sitemap
       stream.end();
       return res.status(200).send(data.toString())
     });
