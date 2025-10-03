@@ -61,7 +61,7 @@ app.use(
   })
 );
 
-app.get('/sitemap.xml', generate_sitemap)
+app.get('/sitemap.xml', generate_sitemap);
 
 
 if (process.env.NODE_ENV === "production") {
