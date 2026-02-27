@@ -82,16 +82,16 @@ const projects = [
     imageSrc: "https://rdc.lamur.us/assets/il_logo-da249e15.png",
     imageAlt: "Logo Lamur",
   },
-  // {
-  //   id: 1,
-  //   name: "DunkZone",
-  //   description:
-  //     "Dunk4Dreams, a non-profit organization committed to empowering underprivileged and through sports education and basketball skill development, is set to create a lasting positive impact in the Las Vegas community. ",
-  //   git: "https://github.com/IaroslavLasiichuk/",
-  //   link: "https://www.dunk-zone.com",
-  //   imageSrc: "https://dunk-zone.com/wp-content/uploads/2023/11/dunk_zone.png",
-  //   imageAlt: "Logo DunkZone",
-  // },
+  {
+    id: 1,
+    name: "Lucky Lock",
+    description:
+      "Lucky Lock is loscksmith company located in Denver Colorado",
+    git: "https://github.com/IaroslavLasiichuk/",
+    link: "https://luckylock.co",
+    imageSrc: "https://luckylock.co/wp-content/uploads/2025/06/lucky_logo-150x150.png",
+    imageAlt: "Logo Lucky Lock",
+  },
   {
     id: 2,
     name: "Dun4Dreams",
